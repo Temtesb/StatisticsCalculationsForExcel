@@ -35,20 +35,10 @@ Option Explicit
 	    End If
 	End Function
 	
-	
-	
-	
-	
-	
 	Public Function QuartileRange(rng As Range)
 	'Created by Bill Young p46
 	    QuartileRange = WorksheetFunction.Quartile_Exc(rng, 3) - WorksheetFunction.Quartile_Exc(rng, 1)
 	End Function
-	
-	
-	
-	
-	
 	
 	Public Function CoefficientOfVariation(rng As Range)
 	'Created by Bill Young p44
@@ -62,11 +52,6 @@ Option Explicit
 	    WorksheetFunction.StDev_P (a)
 	    CoefficientOfVariation = Format(WorksheetFunction.StDev_P(a) / WorksheetFunction.Average(a), "Standard")
 	End Function
-	
-	
-	
-	
-	
 	
 	Public Function Zscore(x As Double, rng As Range)
 	    'Created by Bill Young p46
@@ -84,11 +69,6 @@ Option Explicit
 	    Zscore = Format((x - m) / s, "Standard")
 	End Function
 	
-	
-	
-	
-	
-	
 	Public Function CorrelationCoefficient(Xrng As Range, Yrng As Range)
 	    'Created by Bill Young p55
 	    Dim a As Variant
@@ -104,9 +84,8 @@ Option Explicit
 	    Else
 	        x = Array(Xrng)
 	    End If
-	
-	
-	        If IsArray(Yrng) _
+		
+		If IsArray(Yrng) _
 	    Then
 	        y = Yrng
 	    Else
@@ -118,88 +97,55 @@ Option Explicit
 	    CorrelationCoefficient = Format(Rxy / (Sx * Sy), "Standard")
 	End Function
 	
-	
-	
-	
-	
-	
-	Sub CalculateMultiMode()
-	    'This assumes that the user starts by selecting all of the
-	    'cells in the column of data to be analyzed.
+	Sub CalculateMultiMode(rng as Range)
 	    'The results are on the RankWorking tab.
-	    
-	    Delete
+	    Dim strResultsSheetName as string
+		strResultsSheetName = "RankWorking"
 	    Application.ScreenUpdating = False
 	    'Range(Selection, Selection.End(xlDown)).Select
 	    Selection.Copy
-	    Dim ws As Worksheet
-	    Set ws = ThisWorkbook.Sheets.Add(After:= _
-	             ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
-	    ws.Name = "RankWorking"
-	
-	
-	    ActiveSheet.Paste
-	    
-	    ActiveSheet.Range("C1").Select
-	    ActiveSheet.Paste
+		set ws = CreateWorksheet(strResultsSheetName)
+		ws.Activate ' check this in Excel
+		ws.Paste
+	    ws.Range("C1").Select
+	    ws.Paste
 	    Application.CutCopyMode = False
-	    
-	    ActiveSheet.Range("C1").Select
-	    Range(Selection, Selection.End(xlDown)).RemoveDuplicates Columns:=1, Header:=xlNo
-	    Range("D2").Formula = "=COUNTIF(A:A,C2)"
-	    Range("D2").Select
-	    Selection.Copy
-	    Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
-	    Range("C1").Select
-	    Selection.End(xlDown).Select
-	    
-	    ActiveCell.Offset(0, 1).Select
-	    
-	    Range(Selection, Selection.End(xlUp)).Select
-	    ActiveSheet.Paste
+	    ws.Range("C1").Select
+	    ws.Range(Selection, Selection.End(xlDown)).RemoveDuplicates Columns:=1, Header:=xlNo
+	    ws.Range("D2").Formula = "=COUNTIF(A:A,C2)"
+	    ws.Range("D2").Copy
+	    ws.Range("D2").Select
+	    ws.Range(Selection, ActiveCell.SpecialCells(xlLastCell)).Select
+	    ws.Range("C1").Select
+	    ws.Selection.End(xlDown).Select
+	    ws.ActiveCell.Offset(0, 1).Select
+	    ws.Range(Selection, Selection.End(xlUp)).Select
+	    ws.Paste
 	    Application.CutCopyMode = False
-	    Selection.Copy
-	    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+	    ws.Selection.Copy
+	    ws.Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
 	        :=False, Transpose:=False
-	    Range("D1").Value = "Count"
-	    Columns("C:D").Select
-	    Selection.AutoFilter
-	    ActiveWorkbook.Worksheets("RankWorking").AutoFilter.Sort.SortFields.Clear
-	    ActiveWorkbook.Worksheets("RankWorking").AutoFilter.Sort.SortFields.Add Key:= _
+	    ws.Range("D1").Value = "Count"
+	    ws.Columns("C:D").Select
+	    ws.Selection.AutoFilter
+	    ws.AutoFilter.Sort.SortFields.Clear
+	    ws.AutoFilter.Sort.SortFields.Add Key:= _
 	        Range("D1:D6513"), SortOn:=xlSortOnValues, Order:=xlDescending, DataOption _
 	        :=xlSortNormal
-	    With ActiveWorkbook.Worksheets("RankWorking").AutoFilter.Sort
+	    With ws.AutoFilter.Sort
 	        .Header = xlYes
 	        .MatchCase = False
 	        .Orientation = xlTopToBottom
 	        .SortMethod = xlPinYin
 	        .Apply
 	    End With
-	    Selection.End(xlUp).Select
+	    ws.Selection.End(xlUp).Select
 	    'ThisWorkbook.Sheets("RankWorking").Delete
 	    
-	    Columns("A:B").Delete
-	    Range("A1").Select
+	    ws.Columns("A:B").Delete
+	    ws.Range("A1").Select
 	    Application.ScreenUpdating = True
 	End Sub
-	
-	
-	private Sub Delete()
-	    Dim ws As Worksheet
-	    For Each ws In Worksheets
-	        If ws.Name = "RankWorking" Then
-	            Application.DisplayAlerts = False
-	            Sheets("RankWorking").Delete
-	            Application.DisplayAlerts = True
-	            End
-	        End If
-	    Next
-	End Sub
-	
-	
-	
-	
-	
 	
 	public Function InterQuartileRange(rng)
 	    Dim a
@@ -207,4 +153,3 @@ Option Explicit
 	    'InterQuartileRange = Quartile.exc(rng, 3) - Quartile.exc(rng, 1)
 	    Set ActiveCell.Formula = "= Quartile.exc(rng, 3) - Quartile.exc(rng, 1)"
 	End Function
-	
