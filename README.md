@@ -1,6 +1,6 @@
 # StatisticsCalculationsForExcel
 
-These calculations built (or rebuilt from other open source/public domain libraries/projects) in Visual Basic for Applications (VBA) or Visual Basic (VB) for use primarily in the Microsoft Office Suite.
+These calculations are primarily focused on statistics have been built (or rebuilt from other open source/public domain libraries/projects) in Visual Basic for Applications (VBA) for use primarily in the Microsoft Office Suite. 
 
 ## Installation
 
@@ -19,7 +19,7 @@ TODO: Write usage instructions
 5. Submit a pull request :D
 
 OR
-Submit an [Issue](https://github.com/Temtesb/StatisticsCalculationsForExcel/issues/new)
+Submit an [Issue](issues/new)
 
 ## History
 
