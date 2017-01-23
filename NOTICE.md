@@ -1,7 +1,7 @@
-|This project's source file path|Function(s) or Subroutine(s)|Author(s) Attribution (Year/Name)|[Licence.md](Licence.md) Attribution Number & Title|
-|---|---|---|---|
-|[Excel/src/basSheets.bas](Excel/src/basSheets.bas)|Entire File|2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil) (Note 1) |[1](LICENSE.md#attribution-license-1) : [Public Domain Dedication CC0](https://creativecommons.org/publicdomain/zero/1.0/)|
-|[Excel/src/basArrayUtils.bas](Excel/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2](LICENSE.md#attribution-license-2) : [The MIT License (MIT)](https://opensource.org/licenses/MIT)|
+|This project's source file path|Function(s) or Subroutine(s)|Author(s) Attribution (Year/Name)|[Licence.md](Licence.md) Number/Title|
+|---|---|---|
+|[Excel/src/basSheets.bas](Excel/src/basSheets.bas)|Entire File|2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil) [(Note 1)](#Notes) |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
+|[Excel/src/basArrayUtils.bas](Excel/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2:The MIT License (MIT)](LICENSE.md#attribution-license-2)|
 
 ##Notes:
 1. In accrordance with [17 U.S.C. § 105](https://www.copyright.gov/title17/92chap1.html#105) This work is 'noncopyright' or in the 'public domain'. Exerpts follow:
