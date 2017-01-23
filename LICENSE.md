@@ -1,3 +1,10 @@
+#Table of Contents
+1. [Project License (GNU GPL 3.0)](LICENSE.md#project-license)
+2. [Attribution License 1 (CC0 1.0)](LICENSE.md#attribution-license-1)
+3. [Attribution License 2 (MIT)](LICENSE.md#attribution-license-2)
+
+####See [NOTICE.md](NOTICE.md) for specific attributions 
+
 #Project License
 ### GNU GENERAL PUBLIC LICENSE
 
@@ -707,7 +714,6 @@ Affirmer disclaims responsibility for clearing rights of other persons that may 
 Affirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.
 
 #Attribution License 2
-See [NOTICE.md](https://github.com/Temtesb/StatisticsCalculationsForExcel/blob/master/NOTICE.md) for specific attributions 
 
 [The MIT License (MIT) *{or Expat}*](http://directory.fsf.org/wiki/License:Expat)
 
