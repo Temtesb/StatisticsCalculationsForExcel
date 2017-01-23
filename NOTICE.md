@@ -6,12 +6,15 @@
 |[General VB/src/basArrayUtils.bas](General VB/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2:The MIT License (MIT)](LICENSE.md#attribution-license-2)|
 
 ##Note 1
-1. In accrordance with [17 U.S.C. § 105](https://www.copyright.gov/title17/92chap1.html#105) This work is 'noncopyright' or in the 'public domain'. Exerpts follow:
+1. This project is in the public domain within the United States, and
+copyright and related rights in the work worldwide are waived through
+the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+2. In accrordance with [17 U.S.C. § 105](https://www.copyright.gov/title17/92chap1.html#105) This work is 'noncopyright' or in the 'public domain'. Exerpts follow:
   * Subject matter of copyright: 
     * United States Government works protection under this title is not available for any work of the United States Government, but the United States Government is not precluded from receiving and holding copyrights transferred to it by assignment, bequest, or otherwise.
   * as defined by [17 U.S.C § 101](https://www.copyright.gov/title17/92chap1.html#101):
     * A “work of the United States Government” is a work prepared by an officer or employee of the United States Government as part of that person’s official duties.
-2. Inclusion of any of this public source contribution does not in any way signify endorsment of these efforts by the United State Government
+3. Inclusion of any of this public source contribution does not in any way signify endorsment of these efforts by the United State Government
 
 ##Note 2
 The initial calculations are being built during Managing Small Business Data Analytics class at Regent University. Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' 
