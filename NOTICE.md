@@ -12,7 +12,7 @@
   * as defined by [17 U.S.C § 101](https://www.copyright.gov/title17/92chap1.html#101):
     * A “work of the United States Government” is a work prepared by an officer or employee of the United States Government as part of that person’s official duties.
 2. This work is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
-3. Inclusion of any of this public source contribution does not in any way signify endorsment or sponsorship of these efforts by the United State Government
+3. Inclusion of any of this public source contribution does not in any way signify endorsment or sponsorship of these efforts by the United States Government
 
 ##Note 2
 The initial calculations are being built during Managing Small Business Data Analytics class at Regent University. Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' 
