@@ -1,4 +1,4 @@
-|This project's source file path|Function(s) or Subroutine(s)|Author(s) Attribution|Short description of license|
+|This project's source file path|Function(s) or Subroutine(s)|Author(s) Attribution (Year/Name)|[Licence.md](Licence.md) Attribution Number & Title|
 |---|---|---|---|
 |[Excel/src/basSheets.bas](Excel/src/basSheets.bas)|Entire File|2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil) (Note 1) |[1](LICENSE.md#attribution-license-1) : [Public Domain Dedication CC0](https://creativecommons.org/publicdomain/zero/1.0/)|
 |[Excel/src/basArrayUtils.bas](Excel/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2](LICENSE.md#attribution-license-2) : [The MIT License (MIT)](https://opensource.org/licenses/MIT)|
