@@ -31,7 +31,7 @@ This project has been created by (and is managed by) [William Young](mailto:wmyo
 
 Many initial calculations are being built during Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas file)
 
-Any additional specific attributions to individuals or other copy left sources are listed in [NOTICE.md](NOTICE.md).
+Any additional specific attributions to individuals or other [copyleft](https://copyleft.org/) sources are listed in [NOTICE.md](NOTICE.md).
 
 ## License
 
