@@ -3,7 +3,7 @@
 |[Excel/src/basSheets.bas](Excel/src/basStatistics.bas)|Entire File|2016-2017 [William Young](mailto:wmyoung708@gmail.com) and [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](NOTICE.md#note-1)* *[(Note 2)](NOTICE.md#note-2)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
 |[Access/src/basStatistics.bas](Access/src/basStatistics.bas)|Entire File|2016-2017 [William Young](mailto:wmyoung708@gmail.com) and [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](NOTICE.md#note-1)* *[(Note 2)](NOTICE.md#note-2)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
 |[Excel/src/basSheets.bas](Excel/src/basSheets.bas)|Entire File|2013-2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](Notice.md#Note-1)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
-|[Excel/src/basArrayUtils.bas](Excel/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2:The MIT License (MIT)](LICENSE.md#attribution-license-2)|
+|[General VB/src/basArrayUtils.bas](General VB/src/basArrayUtils.bas)|Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2:The MIT License (MIT)](LICENSE.md#attribution-license-2)|
 
 ##Note 1
   * In accrordance with [17 U.S.C. § 105](https://www.copyright.gov/title17/92chap1.html#105) This work is 'noncopyright' or in the 'public domain'. Exerpts follow:
