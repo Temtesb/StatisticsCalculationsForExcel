@@ -1,6 +1,6 @@
 # StatisticsCalculationsForExcel
 
-These calculations are primarily focused on statistics have been built (or rebuilt from other open source/public domain libraries/projects) in Visual Basic for Applications (VBA) for use primarily in the Microsoft Office Suite. 
+These calculations, functions and subroutines are primarily focused on statistics have been built (or rebuilt from other open source/public domain libraries/projects) in Visual Basic for Applications (VBA) for use primarily in the Microsoft Office Suite. 
 
 ## Installation
 
