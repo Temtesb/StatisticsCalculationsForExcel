@@ -707,9 +707,9 @@ Affirmer disclaims responsibility for clearing rights of other persons that may 
 Affirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.
 
 #Attribution License 2
-[The MIT License (MIT)]()
+See [NOTICE.md](https://github.com/Temtesb/StatisticsCalculationsForExcel/blob/master/NOTICE.md) for specific attributions 
 
-Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>
+[The MIT License (MIT) *{or Expat}*](http://directory.fsf.org/wiki/License:Expat)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
