@@ -7,6 +7,7 @@ Option Explicit
 	'Note: this calculation excludes non-numeric values like Excel's GEOMEAN function.
 	'Unlike GEOMEAN, negative numbers are included.
 	'To properly perform the calculation with negative numbers, the absolute value of all numbers is used.
+	'Still need to confirm that this is the same method used in the /Excel function being used
 	    Dim a As Variant
 	    Dim x As Variant
 	    Dim n As Double
@@ -47,7 +48,7 @@ Option Explicit
 	'https://cran.r-project.org/src/base/R-3/
 	'View R Source code:http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function
 	'There are 9 standard methods for evaluating quartile: http://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html
-	'R's type 7 will be used, find mode of half, then mode of bottom half and top half to get 4 quartiles
+	'R's type 7 will be used, find mode of half, then mode of bottom half and top half to get 4 quartiles			
 	Dim a As Variant
 	If IsArray(rng) _
 	Then
