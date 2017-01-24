@@ -1,4 +1,4 @@
-Attribute VB_Name = "VBALib_ArrayUtils"
+Attribute VB_Name = "VBAlib_ArrayUtils"
 ' Common VBA Library - ArrayUtils
 ' Provides functions for handling arrays that are lacking in the built-in VBA
 ' language.
@@ -85,7 +85,9 @@ Public Function ArrayRank(arr As Variant) As Integer
     CopyMemory vType, arr, 2
     
     ' exit if not an array
-    If (vType And vbArray) = 0 Then Exit Function
+    If (vType And vbArray) = 0 Then
+        Exit Function
+    End If
     
     ' get the address of the SAFEARRAY descriptor
     ' this is stored in the second half of the
@@ -127,7 +129,7 @@ End Function
 
 ' Sorts a section of an array in place.  Code from:
 ' http://stackoverflow.com/questions/152319/vba-array-sort-function
-Private Sub QuickSort(vArray() As Variant, inLow As Long, inHi As Long)
+Private Sub QuickSort(ByRef vArray() As Variant, ByRef inLow As Long, ByRef inHi As Long)
     Dim pivot   As Variant
     Dim tmpSwap As Variant
     Dim tmpLow  As Long
@@ -163,7 +165,7 @@ Private Sub QuickSort(vArray() As Variant, inLow As Long, inHi As Long)
 End Sub
 
 ' Sorts the given single-dimension array in place.
-Public Sub SortArrayInPlace(arr() As Variant)
+Public Sub SortArrayInPlace(ByRef arr() As Variant)
     QuickSort arr, LBound(arr), UBound(arr)
 End Sub
 
@@ -281,3 +283,4 @@ End Function
 Public Function ArrayContains(arr As Variant, val As Variant) As Boolean
     ArrayContains = (ArrayIndexOf(arr, val) >= LBound(arr))
 End Function
+
