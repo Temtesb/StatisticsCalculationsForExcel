@@ -37,7 +37,7 @@ Dim sht As Worksheet
         End If
     End If
     
-    If IsNothing(shtAfter) Then
+    If IsNotSheet(shtAfter) Then
         Set shtAfter = wkshts(wkshts.Count)
     End If
     
@@ -47,6 +47,24 @@ Dim sht As Worksheet
     
     Set CreateWorksheet = sht
     
+End Function
+
+Public Function IsNotSheet(obj As Variant)
+On Error Resume Next
+    Dim wsh As Worksheet
+    Set wsh = obj
+    Dim strName As String
+    strName = wsh.Name
+    IsNotSheet = Not (Err.Number)
+End Function
+
+Public Function IsNotChart(obj As Variant)
+On Error Resume Next
+    Dim chrt As Chart
+    Set chrt = obj
+    Dim strName As String
+    strName = chrt.Name
+    IsNotChart = Not (Err.Number)
 End Function
 
 Public Function CreateChart( _
@@ -70,7 +88,7 @@ Dim cht As Chart
     
 
     
-    If IsNothing(chtAfter) Then
+    If IsNotChart(chtAfter) Then
         Set chtAfter = wkchts(wkchts.Count)
     End If
     
@@ -145,3 +163,5 @@ Dim intSheetCodeNameCount: intSheetCodeNameCount = 1
     Next
 
 End Sub
+
+
