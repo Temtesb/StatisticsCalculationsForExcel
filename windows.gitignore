@@ -19,7 +19,7 @@ $RECYCLE.BIN
 # Windows shortcuts
 .lnk
 
-# Testing Files
+# Test file
 test.xlsb
 test.xlsm
 test.xlm
