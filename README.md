@@ -26,13 +26,11 @@ TODO: Write usage instructions
 
 ## History
 
-TODO: Write history
+This project began as a way to build vba functions to better analyze data using the tools that are avialable to us in our work lives. The initial functions where built during a Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas) file or [/General VB/Src/VB_Statsistics.bas](/General VB/Src/VB_Statsistics.bas) file.
 
 ## Credits
 
 This project has been created by (and is managed by) [William Young](mailto:wmyoung708@gmail.com) and [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil) 
-
-Many initial calculations are being built during Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas file)
 
 Any additional specific attributions to individuals or other [copyleft](https://copyleft.org/) sources are listed in [NOTICE.md](NOTICE.md).
 
