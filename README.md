@@ -9,10 +9,12 @@ Building from source code has some automation, but is still a couple of manual s
 1. [Download](../../archive/master.zip) this repository from GitHub and unzip it
 2. Create or move a excel or access file into either the root or a existing 'build' directory of the project and open that file
 3. Manually import the build_ImportExport.bas module and run the 'ToolImportModules' subroutine 
+  
   1. <kbd>alt</kbd> + <kbd>f11</kbd> (Launch IDE)
-  2. <kbd>ctl</kbd> + <kbd>m</kbd> (Import File)
+  2. <kbd>ctl</kbd> + <kbd>m</kbd> (Import File)
   3. <kbd>ctl</kbd> + <kbd>g</kbd> (Goto Imediate Window)
-  4. Type and execute 'ToolImportModules' from the imediate window
+  4. Type and execute 'ToolImportModules' from the imediate window
+  
 4. Once the code is loaded you can save, close and move your file.
 
 ## Usage
