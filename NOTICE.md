@@ -1,8 +1,8 @@
 |This project's file path(s)|Scope *(Directory/File/Function)*|Author(s) Attribution *(Year/Name)*|[Licence.md](Licence.md) Number/Title|
 |---|---|---|---|
 |1.[Excel/src/VBALib_ArrayUtils.bas](Excel/src/VBALib_ArrayUtils.bas)<br>2.[Excel/src/VBALib_List.cls](Excel/src/VBALib_List.cls)  |Entire File|Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>|[2:The MIT License (MIT)](LICENSE.md#attribution-license-2)|
-|1.[Excel/src/basSheets.bas](Excel/src/basStatistics.bas)<br>2.[General Vb/src/basStatistics.bas](General Vb/src/basStatistics.bas)|Entire File|2016-2017 [William Young](mailto:wmyoung708@gmail.com) and [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](NOTICE.md#note-1)* *[(Note 2)](NOTICE.md#note-2)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
-|[General Vb/src](General Vb/src)|Directory [Note3](NOTICE.md#note-3)|2013-2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](Notice.md#Note-1)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
+|1.[Excel/src/basSheets.bas](Excel/src/basStatistics.bas)<br>2.[General Vb/src/basStatistics.bas](General Vb/src/basStatistics.bas)|Entire File|2016-2017 [William Young](mailto:wmyoung708@gmail.com) and [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)<sup>[(Note 1)](NOTICE.md#note-1) [(Note 2)](NOTICE.md#note-2)</sup> |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
+|[General Vb/src](General Vb/src)|Directory *([Note3])*(NOTICE.md#note-3)|2013-2015 [Jeremy D. Gerdes](mailto:jeremy.gerdes@navy.mil)*[(Note 1)](Notice.md#Note-1)* |[1: Public Domain Dedication CC0 1.0] (LICENSE.md#attribution-license-1)|
 
 ##Note 1
 1. In accrordance with [17 U.S.C. § 105](https://www.copyright.gov/title17/92chap1.html#105) This work is 'noncopyright' or in the 'public domain'. Exerpts follow:
