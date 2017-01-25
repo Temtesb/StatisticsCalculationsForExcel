@@ -1,6 +1,6 @@
 Attribute VB_Name = "VB_Statistics"
 Option Explicit
-'Written by: Jeremy Dean Gerdes <jeremy.gerdes@navy.mil> and Bill Young
+'Authored 2017 by Jeremy Dean Gerdes <jeremy.gerdes@navy.mil> and William Young
 'Norfolk Naval Shipyard
      'CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
      'http://www.copyright.gov/title17/
@@ -43,7 +43,6 @@ Option Explicit
         QmSas2 = 14
         QmSas3 = 15
         QmExcelExcl = 16
-        
     End Enum
         Public Function GeometricMean(rng As Variant)
         'Created by Bill Young p38
@@ -81,41 +80,50 @@ Option Explicit
             End If
         End Function
                 
+        Public Function IsRange(obj As Variant) As Boolean 'can be run from excel or access
+            On Error Resume Next
+            Dim strName As String
+            Select Case True
+                Case InStrRev(Application.Name, "Excel") > 0
+                    strName = obj.Range.Name
+                    IsRange = Err.Number = 0
+                Case InStrRev(Application.Name, "Access") > 0
+                    IsRange = TypeName(obj) = "Range"
+            End Select
+        End Function
+        
         Public Function QuartileFromObject(obj As Variant, quart As QuartileType, qMethod As QuartileMethod, Optional intDimentionRank As Integer) As Double
             'Plan is to accept multidimetional arrays, excel ranges, word tables, access recordsets, tabledefs, and querydef and process dedicated column for quartile
             'Using late binding so that we don't have to deal with assigning referances
-            Dim oAccess As Object: Set oAccess = CreateObject("Access.Application")
-            Dim oWord As Object: Set oWord = CreateObject("Word.Application")
+            Dim oThisApplication As Object: Set oThisApplication = Application
             Dim aryTemp() As Variant
             Dim aryToProcess() As Variant
+            Dim oExcel As Object
+            Dim oAccess As Object
             'Assign any acceptable obect to our aryToProcess
             Select Case True
-                Case IsExcelRangeValidArray(obj)
-                    aryTemp = obj.CurrentArray
+                Case IsRange(obj) And InStrRev(oThisApplication.Name, "Excel") > 0
+                    aryTemp = ExcelRangeToNumericSafeArray(obj)
                     If ArrayRank(aryTemp) > 1 Then
                         aryToProcess = ArraySingleFromMultiDimention(aryTemp, intDimentionRank)
                     Else
                         aryToProcess = aryTemp
                     End If
-'                Case TypeOf obj Is oAccess.Recordset
-'                    'TODO
-'                Case TypeOf obj Is oAccess.TableDef
-'                    'TODO
-'                Case TypeOf obj Is oAccess.QueryDef
-'                    'TODO
-'                Case TypeOf obj Is oWord.Table
-'                    'TODO
+                Case TypeName(obj) = "Recordset" 'And InStrRev(oThisApplication.Name, "Access") > 0
+                    aryToProcess = oThisApplication.GetRows
+                Case TypeName((obj) = "TableDef") Or (TypeName(obj) = "QueryDef")
+                    aryToProcess = obj.OpenRecordset(obj.Name).GetRows
                 Case Else
-                    If IsArray(obj) Then
-                        If ArrayRank(obj) > 1 Then
-                            aryToProcess = ArraySingleFromMultiDimention(obj, intDimentionRank)
-                        End If
-                        QuartileFromObject = Quartile(aryNew, quart, qMethod)
-                    Else
-                        Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range" ', word table, access recordset, access tabledef, or access querydef."
-                        Exit Function
-                    End If
             End Select
+            If IsArray(obj) Then
+                If ArrayRank(obj) > 1 Then
+                    aryToProcess = ArraySingleFromMultiDimention(aryToProcess, intDimentionRank)
+                End If
+                QuartileFromObject = Quartile(aryToProcess, quart, qMethod)
+            Else
+                Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range" ', word table, access recordset, access tabledef, or access querydef."
+                Exit Function
+            End If
         End Function
         
         Public Function Quartile(ByRef ary As Variant, ByRef quart As QuartileType, ByRef qMethod As QuartileMethod) As Double
@@ -138,6 +146,7 @@ Option Explicit
         'http://peltiertech.com/quartiles-for-box-plots/
         'http://dsearls.org/other/CalculatingQuartiles/CalculatingQuartiles.htm
         'http://superuser.com/questions/343339/excel-quartile-function-doesnt-work
+            Dim aryToProcess()
             aryToProcess = Array(ary)
             SortArrayInPlace aryToProcess
             Select Case quart

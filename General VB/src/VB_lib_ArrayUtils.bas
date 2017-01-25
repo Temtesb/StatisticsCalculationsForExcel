@@ -1,12 +1,40 @@
-Attribute VB_Name = "VBAlib_ArrayUtils"
-' Common VBA Library - ArrayUtils
-' Provides functions for handling arrays that are lacking in the built-in VBA
-' language.
-
+Attribute VB_Name = "VB_lib_ArrayUtils"
 Option Explicit
+'Available under The MIT License (MIT) (or Expat)
+'Source https://github.com/nylen/vba-common-library
+'---------------------------------------------------
+'Copyright (c) 2012-2014+ James Nylen <jnylen@gmail.com>
+'Permission is hereby granted, free of charge, to any person obtaining a copy of
+'this software and associated documentation files (the "Software"), to deal in
+'the Software without restriction, including without limitation the rights to
+'use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+'of the Software, and to permit persons to whom the Software is furnished to do
+'so, subject to the following conditions:
+'
+'The above copyright notice and this permission notice shall be included in all
+'copies or substantial portions of the Software.
+'
+'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+'IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+'FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+'AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+'SOFTWARE.
 
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+
+#If VBA7 Then
+    #If Win64 Then
+        Private Declare PtrSafe Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+            (dest As Any, source As Any, ByVal bytes As Long)
+    #Else
+        Private Declare PtrSafe Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+            (dest As Any, source As Any, ByVal bytes As Long)
+    #End If
+#Else
+    Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
     (dest As Any, source As Any, ByVal bytes As Long)
+#End If
 
 Private Const NORMALIZE_LBOUND = 1
 
@@ -189,7 +217,7 @@ Public Function GetUniqueItems(arr() As Variant) As Variant()
         Dim arrSorted() As Variant
         arrSorted = SortArray(arr)
         
-        Dim uniqueItemsList As New VBALib_List
+        Dim uniqueItemsList As New VB_Lib_List
         uniqueItemsList.Add arrSorted(LBound(arrSorted))
         
         Dim i As Long

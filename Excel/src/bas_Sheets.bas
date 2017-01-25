@@ -1,10 +1,8 @@
-Attribute VB_Name = "basSheets"
+Attribute VB_Name = "bas_Sheets"
 Option Explicit
-'Written by: Jeremy Dean Gerdes
-'Norfolk Naval Shipyard
-'C105 Health Physicist
-'jeremy.gerdes@navy.mil
-     'CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
+'Authored 2014-2017 by Jeremy Dean Gerdes <jeremy.gerdes@navy.mil>
+    'Public Domain in the United States of America,
+     'any international rights are relinquished under CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
      'http://www.copyright.gov/title17/
      'In accrordance with 17 U.S.C. § 105 This work is 'noncopyright' or in the 'public domain'
          'Subject matter of copyright: United States Government works
@@ -55,7 +53,7 @@ On Error Resume Next
     Set wsh = obj
     Dim strName As String
     strName = wsh.Name
-    IsNotSheet = Not (Err.Number)
+    IsNotSheet = Err.Number
 End Function
 
 Public Function IsNotChart(obj As Variant)
@@ -64,7 +62,7 @@ On Error Resume Next
     Set chrt = obj
     Dim strName As String
     strName = chrt.Name
-    IsNotChart = Not (Err.Number)
+    IsNotChart = Err.Number
 End Function
 
 Public Function CreateChart( _
@@ -85,8 +83,6 @@ Dim cht As Chart
             Exit Function
         End If
     End If
-    
-
     
     If IsNotChart(chtAfter) Then
         Set chtAfter = wkchts(wkchts.Count)
