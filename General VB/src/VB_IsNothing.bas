@@ -3,7 +3,7 @@ Option Explicit
 
 ' Authored 2011-2014 by Bradley M. Gough and Jeremy Dean Gerdes <jeremy.gerdes@navy.mil>
      'Public Domain in the United States of America,
-     'any international rights are relinquished under CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
+     'any international rights are waived through the CC0 1.0 Universal public domain dedication <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
      'http://www.copyright.gov/title17/
      'In accrordance with 17 U.S.C. § 105 This work is 'noncopyright' or in the 'public domain'
          'Subject matter of copyright: United States Government works
