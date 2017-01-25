@@ -6,7 +6,7 @@ These calculations, functions and subroutines are primarily focused on statistic
 
 Building from source code has some automation, but is still a couple of manual steps:
 
-1. [Download](../../archive/master.zip) this repository and unzip it
+1. [Download](../../archive/master.zip) this repository from GitHub and unzip it
 2. Create or move a excel or access file into either the root or a existing 'build' directory of the project
 3. Manually import the build_ImportExport.bas module and run the 'ToolImportModules' subroutine (shortcut keys{alt+f11; ctl+g})
 4. Once the code is loaded you can save, close and move your file.
@@ -22,7 +22,7 @@ TODO: Write usage instructions
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-6. Or [Submit an Issue Here](https://github.com/Temtesb/StatisticsCalculationsForExcel/issues/new)
+6. Or [Submit an Issue Here](../../issues/new)
 
 ## History
 
