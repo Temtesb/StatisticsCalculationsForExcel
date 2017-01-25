@@ -4,10 +4,13 @@ These calculations, functions and subroutines are primarily focused on statistic
 
 ## Installation
 
+####This project has not yet been tested on MAC or 64bit Office suite, feel free to provide feedback
+
 Building from source code has some automation, but is still a couple of manual steps:
 
 1. [Download](../../archive/master.zip) this repository from GitHub and unzip it
-2. Create or move a excel or access file into either the root or a existing 'build' directory of the project and open that file
+2. Create or move a excel or access file into either the root or a existing 'build' directory of the project 
+3. Open that file
 3. Manually import the build_ImportExport.bas module and run the 'ToolImportModules' subroutine 
 
   1. <kbd>alt</kbd> + <kbd>f11</kbd> (Launch IDE)
