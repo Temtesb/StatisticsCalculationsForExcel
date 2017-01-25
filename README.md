@@ -31,7 +31,11 @@ TODO: Write usage instructions
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-6. Provide your comments to an existing [Issue](../../issues) or [submit a new issue](../../issues/new) if a simmilar one does not exist.
+
+### OR
+
+1. Provide your comments to an existing [issue](../../issues)
+2. If a simmilar one does not exist [submit a new issue](../../issues/new)
 
 ## History
 
