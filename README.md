@@ -38,6 +38,8 @@ Any additional specific attributions to individuals or other [copyleft](https://
 
 ## License
 
-When this project is distributed in it's entirety the license is GNU GPL 3.0.  Many functions and source files are from multiple projects and will have multiple open source or public source attributions (see [NOTICE.md](NOTICE.md)). 
+When this project is distributed in it's entirety the license is GNU GPL 3.0.  Many functions and source files are from multiple projects and have multiple open source or have public source attributions (see [NOTICE.md](NOTICE.md)).
 
-The full text of each licenses will be listed in [LICENSE.md](LICENSE.md)
+All contributions to this project will be published under GNU GPL 3.0. By submitting a pull request, you are certifying that all content added to this project is in a (c) license that is [compatible](https://www.gnu.org/licenses/license-list.en.html#GPLCompatibleLicenses) with the GNU GPL 3.0 license.
+
+The full text of each licens is listed in [LICENSE.md](LICENSE.md)
