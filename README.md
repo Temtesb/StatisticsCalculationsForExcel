@@ -28,7 +28,7 @@ TODO: Write usage instructions
 
 This project began as a way to build vba functions to statisticaly analyze data using the software that was avialable to us in our work.
 
-The initial functions where built during a Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas) file or [/General VB/Src/VB_Statsistics.bas](/General VB/Src/VB_Statsistics.bas) file.
+The initial functions where built during a Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/bas_Statistics.bas) file or [General%20VB/src/VB_Statistics.bas](General VB/Src/VB_Statsistics.bas) file.
 
 ## Credits
 
