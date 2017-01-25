@@ -32,7 +32,7 @@ TODO: Write usage instructions
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-### OR
+<p style="text-align: center;"> OR </p>
 
 1. Provide your comments to an existing [issue](../../issues)
 2. If a simmilar one does not exist [submit a new issue](../../issues/new)
