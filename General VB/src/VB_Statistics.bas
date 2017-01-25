@@ -16,7 +16,8 @@ Option Explicit
          'officer or employee of the United States Government as part of that
          'person’s official duties.
          '...
-'These functions are intendid to work without dependances, using late binding when necessary
+'These functions are the same as bas_Statistics and have been re-written to work without dependances, using late binding when necessary
+'After testing and validation the bas_Statistics module can be depriciated.
     Public Enum QuartileType
         QuartileMinVal = 0
         QuartileFirst = 1
