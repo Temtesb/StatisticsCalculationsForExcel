@@ -26,7 +26,9 @@ TODO: Write usage instructions
 
 ## History
 
-This project began as a way to build vba functions to better analyze data using the tools that are avialable to us in our work lives. The initial functions where built during a Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas) file or [/General VB/Src/VB_Statsistics.bas](/General VB/Src/VB_Statsistics.bas) file.
+This project began as a way to build vba functions to statisticaly analyze data using the software that was avialable to us in our work.
+
+The initial functions where built during a Managing Small Business Data Analytics class at [Regent University](www.regent.edu/). Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' are all found in the [/Excel/Src/basStatsistics.bas](Excel/src/basStatistics.bas) file or [/General VB/Src/VB_Statsistics.bas](/General VB/Src/VB_Statsistics.bas) file.
 
 ## Credits
 
@@ -38,6 +40,6 @@ Any additional specific attributions to individuals or other [copyleft](https://
 
 When this project is distributed in it's entirety the license is GNU GPL 3.0.  Many functions and source files are from multiple projects and have multiple open source or have public source attributions (see [NOTICE.md](NOTICE.md)).
 
-All contributions to this project will be published under GNU GPL 3.0. By submitting a pull request, you are certifying that all content added to this project is in a (c) license that is [compatible](https://www.gnu.org/licenses/license-list.en.html#GPLCompatibleLicenses) with the GNU GPL 3.0 license.
+All contributions to this project will be published under GNU GPL 3.0. By submitting a pull request, you are certifying that all content added to this project is either in a (c) license that is [compatible](https://www.gnu.org/licenses/license-list.en.html#GPLCompatibleLicenses) with the GNU GPL 3.0 license or that you publish those contributions under the GNU GPL 3.0 license.
 
 The full text of each licens is listed in [LICENSE.md](LICENSE.md)
