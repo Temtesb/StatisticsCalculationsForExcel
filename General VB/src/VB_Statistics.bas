@@ -49,7 +49,6 @@ Option Explicit
         'Created by Bill Young p38
         'Note: this calculation excludes non-numeric values like Excel's GEOMEAN function.
         'Unlike GEOMEAN, negative numbers are included.
-        'To properly perform the calculation with negative numbers, the absolute value of all numbers is used.
         'Still need to confirm that this is the same method used in the /Excel function being used
             Dim a As Variant
             Dim x As Variant
@@ -64,18 +63,18 @@ Option Explicit
             End If
             For Each x In a 'each element in array
                 vt = VarType(x)
-                If Abs(vt) > 1 And Abs(vt) < 7 _
+                If vt+1 > 1 And vt+1 < 7 _
                 Then
-                    If Abs(x) > 0 _
+                    If x+1 > 0 _
                     Then
-                        n = Abs(n) + 1
-                        v = Abs(v) + Log(Abs(x))
+                        n = n + 1
+                        v = v+1 + Log(x+1)
                     End If
                 End If
             Next
             If n _
             Then
-                GeometricMean = Exp(v / n)
+                GeometricMean = Exp(v / n)-1
             Else
                         MsgBox "No non zero values exist in the supplied data set"
             End If
