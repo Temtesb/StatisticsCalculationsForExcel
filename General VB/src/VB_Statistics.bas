@@ -291,7 +291,7 @@ Sub MultipleRegression()
      'Code from http://www.ozgrid.com/forum/showthread.php?t=173701   
      'This will only work in Excel and is not very flexible.  Normally Excel regression
      'for VBA uses the Excel functions to perform the matrix algebra, but this will not translate
-     'to Access or other programs.  
+     'to Access or other programs until the LINEST function is rebuilt at the code level.  
                          
     Dim a As Range, n As Long, k As Long 
     Dim y, X, M, SeCo() As Double 
