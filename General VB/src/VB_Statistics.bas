@@ -4,17 +4,17 @@ Option Explicit
 'Norfolk Naval Shipyard
      'CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
      'http://www.copyright.gov/title17/
-     'In accrordance with 17 U.S.C. ß 105 This work is 'noncopyright' or in the 'public domain'
+     'In accrordance with 17 U.S.C. ¬ß 105 This work is 'noncopyright' or in the 'public domain'
          'Subject matter of copyright: United States Government works
          'protection under this title is not available for
          'any work of the United States Government, but the United States
          'Government is not precluded from receiving and holding copyrights
          'transferred to it by assignment, bequest, or otherwise.
-     'as defined by 17 U.S.C ß 101
+     'as defined by 17 U.S.C ¬ß 101
          '...
-         'A ìwork of the United States Governmentî is a work prepared by an
+         'A ‚Äúwork of the United States Government‚Äù is a work prepared by an
          'officer or employee of the United States Government as part of that
-         'personís official duties.
+         'person‚Äôs official duties.
          '...
 'These functions are the same as bas_Statistics and have been re-written to work without dependances, using late binding when necessary
 'After testing and validation the bas_Statistics module can be depriciated.
@@ -284,3 +284,53 @@ Option Explicit
             'InterQuartileRange = Quartile.exc(rng, 3) - Quartile.exc(rng, 1)
             Set ActiveCell.Formula = "= Quartile.exc(rng, 3) - Quartile.exc(rng, 1)"
         End Function
+
+                    
+Sub MultipleRegression() 
+     'P138
+     'Code from http://www.ozgrid.com/forum/showthread.php?t=173701   
+     'This will only work in Excel and is not very flexible.  Normally Excel regression
+     'for VBA uses the Excel functions to perform the matrix algebra, but this will not translate
+     'to Access or other programs.  
+                         
+    Dim a As Range, n As Long, k As Long 
+    Dim y, X, M, SeCo() As Double 
+    Dim Coeff, rsq As Single 
+     
+    If Intersect(Range("A5").CurrentRegion, ActiveCell) Is Nothing Then _ 
+    MsgBox "Select cell within the data range" & Chr(10) & _ 
+    "for the regression code to run": Exit Sub 
+     
+    With Range("A4", ActiveCell) 
+        n = .Rows.Count 
+        k = .Columns.Count 
+        .Columns(k).Offset(, 1).Insert xlToRight 
+        .Columns(k + 1) = 1 
+        y = .Resize(n - 1, 1).Offset(1) 
+        X = .Resize(n - 1, k).Offset(1, 1) 
+        .Offset(, k).Resize(, 1).Delete xlToLeft 
+        cname = Application.Transpose(.Resize(, k - 1).Offset(, 1)) 
+    End With 
+    Redim SeCo(1 To k, 1 To 1) 
+     
+    With Application 
+        M = .MInverse(.MMult(.Transpose(X), X)) 
+        Coeff = .MMult(M, .MMult(.Transpose(X), y)) 
+        rvar = (.SumSq(y) - Evaluate(.MMult(.Transpose(y), .MMult(X, Coeff)))) / (n - k) 
+        rsq = Evaluate(.MMult(.Transpose(y), .MMult(X, Coeff))) / .SumSq(y) 
+        For j = 1 To k 
+            SeCo(j, 1) = (rvar * M(j, j)) ^ 0.5 
+        Next j 
+    End With 
+     
+    With Range("M1") 
+        .Value = "Coeffs" 
+        .Offset(1).Resize(k) = Coeff 
+        .Offset(, 1) = "SECoef" 
+        .Offset(1, 1).Resize(k) = SeCo 
+        .Offset(, 2) = "RSq" 
+        .Offset(1, 2) = rsq 
+        .Offset(1, -1).Resize(k - 1) = cname 
+        .Offset(k, -1) = "Const" 
+    End With 
+End Sub 
