@@ -65,7 +65,9 @@ mSetThisVbeProject
                 Case Else
                     mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName
             End Select
-            If fDeleteFromWorkbookOnExport Then
+            If fDeleteFromWorkbookOnExport _
+                And LCase(Left(strComponentName, 6)) <> "build_" _
+            Then
                 mobjThisVbeProject.VBComponents.Remove mobjThisVbeProject.VBComponents.Item(intCurrentComponent)
             End If
         End If
