@@ -66,18 +66,18 @@ End Enum
        End If
        For Each x In a 'each element in array
            vt = VarType(x)
-           If vt+1 > 1 And vt+1 < 7 _
+           If vt + 1 > 1 And vt + 1 < 7 _
            Then
-               If x+1 > 0 _
+               If x + 1 > 0 _
                Then
                    n = n + 1
-                   v = v+1 + Log(x+1)
+                   v = v + 1 + Log(x + 1)
                End If
            End If
        Next
        If n _
        Then
-           GeometricMean = Exp(v / n)-1
+           GeometricMean = Exp(v / n) - 1
        Else
                    MsgBox "No non zero values exist in the supplied data set"
        End If
@@ -261,7 +261,7 @@ Public Function CoefficientOfVariation(rng As Range)
     CoefficientOfVariation = Format(WorksheetFunction.StDev_P(a) / WorksheetFunction.Average(a), "Standard")
 End Function
 
-Public Function Zscore(X As Double, rng As Range)
+Public Function Zscore(x As Double, rng As Range)
     'Created by Bill Young p46
     Dim a As Variant
     Dim s As Double
@@ -274,23 +274,23 @@ Public Function Zscore(X As Double, rng As Range)
     End If
     m = WorksheetFunction.Average(a)
     s = WorksheetFunction.StDev_P(a)
-    Zscore = Format((X - m) / s, "Standard")
+    Zscore = Format((x - m) / s, "Standard")
 End Function
 
 Public Function CorrelationCoefficient(Xrng As Range, Yrng As Range)
     'Created by Bill Young p55
     Dim a As Variant
     Dim Rxy As Variant
-    Dim X As Variant
+    Dim x As Variant
     Dim y As Variant
     Dim Sx As Double
     Dim Sy As Double
     Dim Yx As Double
     If IsArray(Xrng) _
     Then
-        X = Xrng
+        x = Xrng
     Else
-        X = Array(Xrng)
+        x = Array(Xrng)
     End If
         
         If IsArray(Yrng) _
@@ -299,8 +299,8 @@ Public Function CorrelationCoefficient(Xrng As Range, Yrng As Range)
     Else
         y = Array(Yrng)
     End If
-    Rxy = WorksheetFunction.Covariance_S(X, y)
-    Sx = WorksheetFunction.StDev_S(X)
+    Rxy = WorksheetFunction.Covariance_S(x, y)
+    Sx = WorksheetFunction.StDev_S(x)
     Sy = WorksheetFunction.StDev_S(y)
     CorrelationCoefficient = Format(Rxy / (Sx * Sy), "Standard")
 End Function
@@ -357,51 +357,54 @@ Sub CalculateMultiMode(rng As Range)
 End Sub
 
                                    
-Sub MultipleRegression() 
+Sub MultipleRegression()
      'P138
-     'Code from http://www.ozgrid.com/forum/showthread.php?t=173701   
+     'Code from http://www.ozgrid.com/forum/showthread.php?t=173701
      'This will only work in Excel and is not very flexible.  Normally Excel regression
      'for VBA uses the Excel functions to perform the matrix algebra, but this will not translate
      'to Access or other programs.   until the LINEST function is rebuilt at the code level.
                          
-    Dim a As Range, n As Long, k As Long 
-    Dim y, X, M, SeCo() As Double 
-    Dim Coeff, rsq As Single 
+    Dim a As Range, n As Long, j As Long, k As Long
+    Dim y, x, m, SeCo() As Double
+    Dim Coeff, rsq As Single
+    
+    'not defined on first build
+    Dim cname, rvar
+    
+    If Intersect(Range("A5").CurrentRegion, ActiveCell) Is Nothing Then _
+    MsgBox "Select cell within the data range" & Chr(10) & _
+    "for the regression code to run": Exit Sub
      
-    If Intersect(Range("A5").CurrentRegion, ActiveCell) Is Nothing Then _ 
-    MsgBox "Select cell within the data range" & Chr(10) & _ 
-    "for the regression code to run": Exit Sub 
+    With Range("A4", ActiveCell)
+        n = .Rows.Count
+        k = .Columns.Count
+        .Columns(k).Offset(, 1).Insert xlToRight
+        .Columns(k + 1) = 1
+        y = .Resize(n - 1, 1).Offset(1)
+        x = .Resize(n - 1, k).Offset(1, 1)
+        .Offset(, k).Resize(, 1).Delete xlToLeft
+        cname = Application.Transpose(.Resize(, k - 1).Offset(, 1))
+    End With
+    ReDim SeCo(1 To k, 1 To 1)
      
-    With Range("A4", ActiveCell) 
-        n = .Rows.Count 
-        k = .Columns.Count 
-        .Columns(k).Offset(, 1).Insert xlToRight 
-        .Columns(k + 1) = 1 
-        y = .Resize(n - 1, 1).Offset(1) 
-        X = .Resize(n - 1, k).Offset(1, 1) 
-        .Offset(, k).Resize(, 1).Delete xlToLeft 
-        cname = Application.Transpose(.Resize(, k - 1).Offset(, 1)) 
-    End With 
-    Redim SeCo(1 To k, 1 To 1) 
+    With Application
+        m = .MInverse(.MMult(.Transpose(x), x))
+        Coeff = .MMult(m, .MMult(.Transpose(x), y))
+        rvar = (.SumSq(y) - Evaluate(.MMult(.Transpose(y), .MMult(x, Coeff)))) / (n - k)
+        rsq = Evaluate(.MMult(.Transpose(y), .MMult(x, Coeff))) / .SumSq(y)
+        For j = 1 To k
+            SeCo(j, 1) = (rvar * m(j, j)) ^ 0.5
+        Next j
+    End With
      
-    With Application 
-        M = .MInverse(.MMult(.Transpose(X), X)) 
-        Coeff = .MMult(M, .MMult(.Transpose(X), y)) 
-        rvar = (.SumSq(y) - Evaluate(.MMult(.Transpose(y), .MMult(X, Coeff)))) / (n - k) 
-        rsq = Evaluate(.MMult(.Transpose(y), .MMult(X, Coeff))) / .SumSq(y) 
-        For j = 1 To k 
-            SeCo(j, 1) = (rvar * M(j, j)) ^ 0.5 
-        Next j 
-    End With 
-     
-    With Range("M1") 
-        .Value = "Coeffs" 
-        .Offset(1).Resize(k) = Coeff 
-        .Offset(, 1) = "SECoef" 
-        .Offset(1, 1).Resize(k) = SeCo 
-        .Offset(, 2) = "RSq" 
-        .Offset(1, 2) = rsq 
-        .Offset(1, -1).Resize(k - 1) = cname 
-        .Offset(k, -1) = "Const" 
-    End With 
-End Sub 
+    With Range("M1")
+        .Value = "Coeffs"
+        .Offset(1).Resize(k) = Coeff
+        .Offset(, 1) = "SECoef"
+        .Offset(1, 1).Resize(k) = SeCo
+        .Offset(, 2) = "RSq"
+        .Offset(1, 2) = rsq
+        .Offset(1, -1).Resize(k - 1) = cname
+        .Offset(k, -1) = "Const"
+    End With
+End Sub
