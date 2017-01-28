@@ -18,6 +18,7 @@ Option Explicit
          '...
 
 #If True Then 'can only execute on a macro trusted platform
+Private mobjThisVbeProject As Object
 
 Public Sub ToolExportAllModualsAsBas()
 'Allways export while the file is in the respective Build folder
@@ -90,25 +91,43 @@ Public Sub ToolImportModules()
     End Select
 End Sub
 
+Private Sub mSetThisVbeProject()
+    'Only bother setting this once
+    If mobjThisVbeProject Is Nothing Then
+        Dim vbeProject As Object
+        For Each vbeProject In Application.VBE.VBProjects()
+            If vbeProject.Filename = ThisWorkbook.Path & "\" & ThisWorkbook.Name Then
+                Set mobjThisVbeProject = vbeProject
+                GoTo ExitHere
+            End If
+        Next
+ExitHere:
+        'Cleanup
+        Set vbeProject = Nothing
+    End If
+End Sub
+
 Private Sub mImportVbComponent(strFolderSource)
     Dim fil As Object, fso As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
+    mSetThisVbeProject
     If fso.FolderExists(strFolderSource) Then
         For Each fil In fso.GetFolder(strFolderSource).Files
             Dim strExtension As String: strExtension = LCase(mGetFileExtension(fil.Name))
             If strExtension = "cl" Or strExtension = "bas" Or Len(strExtension) = 0 Then
                 If VbComponentExits(fil.Name) Then
                     If MsgBox("Do you want to replace the existing Visual Basic Component with the file:" & fil.Name & " - last modified:" & fil.DateLastModified & "?", vbYesNo + vbQuestion, "VBA Statistics Import Conflict") = vbYes Then
-                        Application.VBE.ActiveVBProject.VBComponents.Remove Application.VBE.ActiveVBProject.VBComponents(Left(fil.Name, InStrRev(fil.Name, ".") - 1))
-                        Application.VBE.ActiveVBProject.VBComponents.Import (fil.Path)
+                        mobjThisVbeProject.VBComponents.Remove Application.VBE.ActiveVBProject.VBComponents(Left(fil.Name, InStrRev(fil.Name, ".") - 1))
+                        mobjThisVbeProject.VBComponents.Import (fil.Path)
                     End If
                 Else
-                    Application.VBE.ActiveVBProject.VBComponents.Import (fil.Path)
+                    mobjThisVbeProject.VBComponents.Import (fil.Path)
                 End If
             End If
         Next
     End If
 End Sub
+
 Private Function mGetFileExtension(strFileName)
     mGetFileExtension = Right(strFileName, Len(strFileName) - InStrRev(strFileName, "."))
 End Function
