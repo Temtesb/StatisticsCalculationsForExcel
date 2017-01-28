@@ -19,7 +19,7 @@ Option Explicit
 
 Public Function RoundDown(dblVal As Double, intDigitsAfterDecimal As Integer) As Double
 Dim strTempVal As String: strTempVal = CStr(dblVal)
-Dim lngDecimalLocation As Long: lngDecimalLocation = InStr(1, strTempVal, ".", vbBinaryCompare)
+Dim lngDecimalLocation As LongPtr: lngDecimalLocation = InStr(1, strTempVal, ".", vbBinaryCompare)
     If lngDecimalLocation = 0 Then
         RoundDown = dblVal
     Else

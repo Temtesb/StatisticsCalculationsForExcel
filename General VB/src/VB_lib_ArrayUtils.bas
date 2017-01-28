@@ -22,18 +22,17 @@ Option Explicit
 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 'SOFTWARE.
 
-
 #If VBA7 Then
     #If Win64 Then
         Private Declare PtrSafe Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
-            (dest As Any, source As Any, ByVal bytes As Long)
+            (dest As Any, source As Any, ByVal bytes As LongPtr)
     #Else
         Private Declare PtrSafe Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
-            (dest As Any, source As Any, ByVal bytes As Long)
+            (dest As Any, source As Any, ByVal bytes As LongPtr)
     #End If
 #Else
     Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
-    (dest As Any, source As Any, ByVal bytes As Long)
+    (dest As Any, source As Any, ByVal bytes As LongPtr)
 #End If
 
 Private Const NORMALIZE_LBOUND = 1
@@ -50,8 +49,8 @@ Public Function NormalizeArray(arr As Variant) As Variant
     
     Dim arr2() As Variant
     
-    Dim nItems As Long
-    Dim i As Long
+    Dim nItems As LongPtr
+    Dim i As LongPtr
     
     Select Case ArrayRank(arr)
         Case 1
@@ -104,7 +103,7 @@ End Function
 ' Returns the rank (number of dimensions) of an array.
 ' From http://www.devx.com/vb2themax/Tip/18265 .
 Public Function ArrayRank(arr As Variant) As Integer
-    Dim ptr As Long
+    Dim ptr As LongPtr
     Dim vType As Integer
     Const VT_BYREF = &H4000&
     
@@ -146,7 +145,7 @@ End Function
 
 ' Returns the number of elements in an array for a given dimension.
 Public Function ArrayLen(arr As Variant, _
-    Optional dimNum As Integer = 1) As Long
+    Optional dimNum As Integer = 1) As LongPtr
     
     If IsEmpty(arr) Then
         ArrayLen = 0
@@ -157,11 +156,11 @@ End Function
 
 ' Sorts a section of an array in place.  Code from:
 ' http://stackoverflow.com/questions/152319/vba-array-sort-function
-Private Sub QuickSort(ByRef vArray() As Variant, ByRef inLow As Long, ByRef inHi As Long)
+Private Sub QuickSort(ByRef vArray As Variant, ByRef inLow As LongPtr, ByRef inHi As LongPtr)
     Dim pivot   As Variant
     Dim tmpSwap As Variant
-    Dim tmpLow  As Long
-    Dim tmpHi   As Long
+    Dim tmpLow  As LongPtr
+    Dim tmpHi   As LongPtr
     
     tmpLow = inLow
     tmpHi = inHi
@@ -193,12 +192,12 @@ Private Sub QuickSort(ByRef vArray() As Variant, ByRef inLow As Long, ByRef inHi
 End Sub
 
 ' Sorts the given single-dimension array in place.
-Public Sub SortArrayInPlace(ByRef arr() As Variant)
+Public Sub SortArrayInPlace(ByRef arr As Variant)
     QuickSort arr, LBound(arr), UBound(arr)
 End Sub
 
 ' Returns a sorted copy of the given array.
-Public Function SortArray(arr() As Variant) As Variant()
+Public Function SortArray(arr As Variant) As Variant()
     If ArrayLen(arr) = 0 Then
         SortArray = Array()
     Else
@@ -210,7 +209,7 @@ Public Function SortArray(arr() As Variant) As Variant()
 End Function
 
 ' Returns an array containing each unique item in the given array only once.
-Public Function GetUniqueItems(arr() As Variant) As Variant()
+Public Function GetUniqueItems(arr As Variant) As Variant()
     If ArrayLen(arr) = 0 Then
         GetUniqueItems = Array()
     Else
@@ -220,7 +219,7 @@ Public Function GetUniqueItems(arr() As Variant) As Variant()
         Dim uniqueItemsList As New VB_Lib_List
         uniqueItemsList.Add arrSorted(LBound(arrSorted))
         
-        Dim i As Long
+        Dim i As LongPtr
         For i = LBound(arrSorted) + 1 To UBound(arrSorted)
             If arrSorted(i) <> arrSorted(i - 1) Then
                 uniqueItemsList.Add arrSorted(i)
@@ -246,12 +245,12 @@ End Function
 ' @param c2: The index of the last element to be extracted from the second
 ' dimension of the array.  If not given, defaults to the upper bound of the
 ' second dimension.
-Public Function ArraySubset(arr() As Variant, _
-    Optional r1 As Long = -1, Optional r2 As Long = -1, _
-    Optional c1 As Long = -1, Optional c2 As Long = -1) As Variant()
+Public Function ArraySubset(arr As Variant, _
+    Optional r1 As LongPtr = -1, Optional r2 As LongPtr = -1, _
+    Optional c1 As LongPtr = -1, Optional c2 As LongPtr = -1) As Variant()
     
     Dim arr2() As Variant
-    Dim i As Long, j As Long
+    Dim i As LongPtr, j As LongPtr
     
     If r1 < 0 Then r1 = LBound(arr, 1)
     If r2 < 0 Then r2 = UBound(arr, 1)
@@ -294,9 +293,9 @@ End Function
 ' the lower bound of the array if the value is not found in the array.
 ' @param arr: The array to search through.
 ' @param val: The value to search for.
-Public Function ArrayIndexOf(arr As Variant, val As Variant) As Long
+Public Function ArrayIndexOf(arr As Variant, val As Variant) As LongPtr
     ArrayIndexOf = LBound(arr) - 1
-    Dim i As Long
+    Dim i As LongPtr
     For i = LBound(arr) To UBound(arr)
         If arr(i) = val Then
             ArrayIndexOf = i

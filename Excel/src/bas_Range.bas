@@ -19,7 +19,7 @@ Option Explicit
 Public Function FindUniqueCellRange( _
     strFindValue As String, _
     wshActiveWorksheet As Worksheet, _
-    Optional ByVal xlWholeOrxlPart As Long = xlPart) _
+    Optional ByVal xlWholeOrxlPart As LongPtr = xlPart) _
 As Range
 Dim c As Range
     Set c = wshActiveWorksheet.Cells.Find(strFindValue, , , xlWholeOrxlPart)
@@ -30,10 +30,10 @@ Dim c As Range
                     
 End Function
 
-Private Function GetFirstRow(ByRef rngAddress As Range) As Long
+Private Function GetFirstRow(ByRef rngAddress As Range) As LongPtr
 Dim c As Range
 Dim objArea As Variant
-Dim lngLowestRow As Long
+Dim lngLowestRow As LongPtr
     For Each objArea In rngAddress.Areas
         For Each c In objArea.Cells
             If lngLowestRow <> 0 Then
@@ -48,10 +48,10 @@ Dim lngLowestRow As Long
     GetFirstRow = lngLowestRow
 End Function
 
-Private Function GetFirstColumn(ByRef rngAddress As Range) As Long
+Private Function GetFirstColumn(ByRef rngAddress As Range) As LongPtr
 Dim c As Range
 Dim objArea As Range
-Dim lngLowestColumn As Long
+Dim lngLowestColumn As LongPtr
     For Each objArea In rngAddress.Areas
         For Each c In objArea.Cells
             If lngLowestColumn <> 0 Then
@@ -66,11 +66,11 @@ Dim lngLowestColumn As Long
     GetFirstColumn = lngLowestColumn
 End Function
 
-Public Function GetLastRow(ByRef rngAddress As Range) As Long
+Public Function GetLastRow(ByRef rngAddress As Range) As LongPtr
     If IsSomething(rngAddress) Then
         Dim c As Range
         Dim objArea As Variant
-        Dim lngHighestRow As Long
+        Dim lngHighestRow As LongPtr
         For Each objArea In rngAddress.Areas
             For Each c In objArea.Cells
                 If lngHighestRow <> 0 Then
@@ -86,10 +86,10 @@ Public Function GetLastRow(ByRef rngAddress As Range) As Long
     End If
 End Function
 
-Private Function GetLastColumn(ByRef rngAddress As Range) As Long
+Private Function GetLastColumn(ByRef rngAddress As Range) As LongPtr
 Dim c As Range
 Dim objArea As Variant
-Dim lngHighestColumn As Long
+Dim lngHighestColumn As LongPtr
     For Each objArea In rngAddress.Areas
         For Each c In objArea.Cells
             If lngHighestColumn <> 0 Then
@@ -157,8 +157,8 @@ End Function
 Public Function GetTopLeftCellOfRanges(ByRef rngAddress As Range) As Range
 Dim area As Variant
 Dim intArea As Integer: intArea = 1
-Dim lngLowestRow As Long
-Dim lngLowestColumn As Long
+Dim lngLowestRow As LongPtr
+Dim lngLowestColumn As LongPtr
 Dim lngCurrentRow
 Dim lngCurrentColumn
     'Assign the lowest to the first area
@@ -183,8 +183,8 @@ End Function
 Public Function GetBottomRightCellOfRanges(ByRef rngAddress As Range) As Range
 Dim area As Variant
 Dim intArea As Integer: intArea = 1
-Dim lngHighestRow As Long
-Dim lngHighestColumn As Long
+Dim lngHighestRow As LongPtr
+Dim lngHighestColumn As LongPtr
 Dim lngCurrentRow
 Dim lngCurrentColumn
     'Assign the Highest to the first area
@@ -287,15 +287,15 @@ End Function
 
 Public Function ExcelRangeToNumericSafeArray(ByRef obj As Variant) As Variant
     On Error GoTo 0
-    Dim ary() As Double
+    Dim ary() As Double 'force to double
     If IsArray(obj) Then
         Dim intColumnCount As Integer
         intColumnCount = obj.Columns.Count
-        Dim lngElementCount As Long
+        Dim lngElementCount As LongPtr
         lngElementCount = obj.Cells.Count
-        Dim lngRowCount As Long
+        Dim lngRowCount As LongPtr
         lngRowCount = obj.Rows.Count
-        Dim lngElement As Long
+        Dim lngElement As LongPtr
         If intColumnCount > 1 Then
             ReDim ary(lngElementCount, intColumnCount)
             Dim intCurrentColumn As Integer

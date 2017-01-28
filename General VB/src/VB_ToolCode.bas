@@ -352,8 +352,8 @@ Public Sub ToolFindCodeModulesWithCode(ByRef strFind As String)
     Dim objVBComponent As Object ' VBIDE.VBComponent
     For Each objVBComponent In Application.VBE.ActiveVBProject.VBComponents
         With objVBComponent.CodeModule
-            Dim lngStartLine As Long
-            Dim lngStartColumn As Long
+            Dim lngStartLine As LongPtr
+            Dim lngStartColumn As LongPtr
             lngStartLine = 1
             lngStartColumn = 1
             Do While .Find(strFind, lngStartLine, lngStartColumn, -1, -1, True, True, False)
@@ -394,13 +394,13 @@ Public Sub ToolFindCodeModulesWithXCodeAndWithoutYCode(ByRef strXCode As String,
     Dim objVBComponent As Object ' VBIDE.VBComponent
     For Each objVBComponent In Application.VBE.ActiveVBProject.VBComponents
         With objVBComponent.CodeModule
-          Dim lngStartLine As Long
-            Dim lngStartColumn As Long
+          Dim lngStartLine As LongPtr
+            Dim lngStartColumn As LongPtr
             lngStartLine = 1
             lngStartColumn = 1
             Do While .Find(strXCode, lngStartLine, lngStartColumn, -1, -1, True, True, False)
                 Dim strFoundLogicalLine As String
-                Dim lngMultiLineStatementLineCount As Long
+                Dim lngMultiLineStatementLineCount As LongPtr
                 strFoundLogicalLine = ToolGetLogicalLine(objVBComponent.CodeModule, lngStartLine, lngMultiLineStatementLineCount)
                 If InStr(1, strFoundLogicalLine, strYCode, vbBinaryCompare) = 0 Then
                     .CodePane.Show
@@ -433,7 +433,7 @@ Public Sub ToolRemoveSpacesFromBlankLinesOfCode()
     Dim objVBComponent As Object ' VBIDE.VBComponent
     For Each objVBComponent In Application.VBE.ActiveVBProject.VBComponents
         With objVBComponent.CodeModule
-            Dim lngLine As Long
+            Dim lngLine As LongPtr
             For lngLine = 1 To .CountOfLines
                 Dim strLine As String
                 strLine = .Lines(lngLine, 1)
@@ -458,7 +458,7 @@ Public Sub ToolFindMultiLineStatements()
     Dim objVBComponent As Object ' VBIDE.VBComponent
     For Each objVBComponent In Application.VBE.ActiveVBProject.VBComponents
         With objVBComponent.CodeModule
-            Dim lngLine As Long
+            Dim lngLine As LongPtr
             For lngLine = 1 To .CountOfLines
                 ' Test for multi-line statement by looking for line continuation character
                 Dim strLine As String
@@ -466,7 +466,7 @@ Public Sub ToolFindMultiLineStatements()
                 If Right$(strLine, 2) = " _" Then
 
                     Dim strMultiLineStatement As String
-                    Dim lngMultiLineStatementLineCount As Long
+                    Dim lngMultiLineStatementLineCount As LongPtr
                     strMultiLineStatement = ToolGetLogicalLine(objVBComponent.CodeModule, lngLine, lngMultiLineStatementLineCount)
 
                     #If True Then
@@ -486,7 +486,7 @@ Public Sub ToolFindMultiLineStatements()
                     #Else
                         ' Find statements that operators at the start of a continuation line instead
                         ' of the end of the line being continued
-                        Dim lngMultlineStatementLine As Long
+                        Dim lngMultlineStatementLine As LongPtr
                         For lngMultlineStatementLine = lngLine To lngLine + lngMultiLineStatementLineCount - 1
                             Dim strMultiLineStatementLine As String
                             strMultiLineStatementLine = Trim$(.Lines(lngMultlineStatementLine, 1))
@@ -531,14 +531,14 @@ Public Sub ToolSetIndentForMultiLineStatements()
     Dim objVBComponent As Object ' VBIDE.VBComponent
     For Each objVBComponent In Application.VBE.ActiveVBProject.VBComponents
         With objVBComponent.CodeModule
-            Dim lngLine As Long
+            Dim lngLine As LongPtr
             For lngLine = 1 To .CountOfLines
                 Dim strLine As String
                 strLine = .Lines(lngLine, 1)
                 ' Test for multi-line statement by looking for line continuation character
                 If Right$(strLine, 2) = " _" Then
                     ' Get indent position for all lines after first line of multi-line statement
-                    Dim lngIndentPosition As Long
+                    Dim lngIndentPosition As LongPtr
                     lngIndentPosition = ToolGetFirstTokenPosition(strLine, 1, True)
                     lngIndentPosition = lngIndentPosition + 4
                     'Debug.Print strLine
@@ -570,8 +570,8 @@ Public Sub ToolRemoveCallKeywordFromProcedureCalls()
 
         With objVBComponent.CodeModule
 
-            Dim lngStartLine As Long
-            Dim lngStartColumn As Long
+            Dim lngStartLine As LongPtr
+            Dim lngStartColumn As LongPtr
             lngStartLine = 1
             lngStartColumn = 1
 
@@ -588,11 +588,11 @@ Public Sub ToolRemoveCallKeywordFromProcedureCalls()
                         ' Overwrite 'Call' keywork with 4 spaces
                         Mid$(strLogicalLine, lngStartColumn, 4) = "    "
                         ' Overwrite start argument '(' with 1 space
-                        Dim lngStartArgumentParathesisPosition As Long
+                        Dim lngStartArgumentParathesisPosition As LongPtr
                         lngStartArgumentParathesisPosition = InStr(lngStartColumn + 5, strLogicalLine, "(", vbBinaryCompare)
                         Mid$(strLogicalLine, lngStartArgumentParathesisPosition, 1) = " "
                         ' Remove end argument ')'
-                        Dim lngEndArgumentParathesisPosition As Long
+                        Dim lngEndArgumentParathesisPosition As LongPtr
                         lngEndArgumentParathesisPosition = InStrRev(strLogicalLine, ")", -1, vbBinaryCompare)
                         strLogicalLine = Left$(strLogicalLine, lngEndArgumentParathesisPosition - 1) & Right$(strLogicalLine, Len(strLogicalLine) - lngEndArgumentParathesisPosition)
 
@@ -601,7 +601,7 @@ Public Sub ToolRemoveCallKeywordFromProcedureCalls()
                         astrPhysicalLines = Split(strLogicalLine, vbCrLf, -1, vbBinaryCompare)
 
                         ' Shift all physical lines to the left 5 spaces to account for removal of 'Call '
-                        Dim lngPhysicalLineIndex As Long
+                        Dim lngPhysicalLineIndex As LongPtr
                         For lngPhysicalLineIndex = 0 To UBound(astrPhysicalLines)
                             Dim strPhysicalLine As String
                             strPhysicalLine = astrPhysicalLines(lngPhysicalLineIndex)
@@ -645,12 +645,12 @@ Public Sub ToolAddByRefKeywordToProcedureDeclarations()
         With objVBComponent.CodeModule
 
             ' Cycle through all non declaration lines of code
-            Dim lngNonDeclarationLine As Long
+            Dim lngNonDeclarationLine As LongPtr
             For lngNonDeclarationLine = .CountOfDeclarationLines + 1 To .CountOfLines
 
                 ' Get procedure name and type for current line of code
                 Dim strProcedureName As String
-                Dim lngProcedureType As Long ' vbext_ProcKind
+                Dim lngProcedureType As LongPtr ' vbext_ProcKind
                 strProcedureName = .ProcOfLine(lngNonDeclarationLine, lngProcedureType)
 
                 ' Verify we found a procedure name
@@ -675,7 +675,7 @@ Public Sub ToolAddByRefKeywordToProcedureDeclarations()
                         fReplaceProcedureDeclarationStatement = False
 
                         ' Get procedure declaration start line
-                        Dim lngProcedureDeclarationStatementStartLine As Long
+                        Dim lngProcedureDeclarationStatementStartLine As LongPtr
                         lngProcedureDeclarationStatementStartLine = .ProcBodyLine(strProcedureName, lngProcedureType)
 
                         ' Get procedure declaration statement
@@ -685,7 +685,7 @@ Public Sub ToolAddByRefKeywordToProcedureDeclarations()
 
                         ' Find delimiter that indicates start of arguments
                         ' Note: Find '(' delimiter
-                        Dim lngProcedureDeclarationStatementPosition As Long
+                        Dim lngProcedureDeclarationStatementPosition As LongPtr
                         lngProcedureDeclarationStatementPosition = ToolGetTokenPosition( _
                             ToolGetTokenSearchLogicalLine(strProcedureDeclarationStatement), _
                             1, True, "(", tttcSeparator)
@@ -821,7 +821,7 @@ Public Sub ToolFindDeclarationsWithoutDefinedScope()
         With objVBComponent.CodeModule
 
             ' Cycle through all declaration lines of code
-            Dim lngDeclarationLine As Long
+            Dim lngDeclarationLine As LongPtr
             For lngDeclarationLine = 1 To .CountOfDeclarationLines
 
                 ' Test for keywords that indicate declaration statement without defined scope
@@ -845,19 +845,19 @@ Public Sub ToolFindDeclarationsWithoutDefinedScope()
             Next
 
             ' Cycle through all non declaration lines of code
-            Dim lngNonDeclarationLine As Long
+            Dim lngNonDeclarationLine As LongPtr
             For lngNonDeclarationLine = .CountOfDeclarationLines + 1 To .CountOfLines
 
                 ' Get procedure name for current line of code
                 Dim strProcedureName As String
-                Dim lngProcedureType As Long ' vbext_ProcKind
+                Dim lngProcedureType As LongPtr ' vbext_ProcKind
                 strProcedureName = .ProcOfLine(lngNonDeclarationLine, lngProcedureType)
 
                 ' Verify we found a procedure name
                 If LenB(strProcedureName) <> 0 Then
 
                     ' Get procedure start line
-                    Dim lngProcedureStartLine As Long
+                    Dim lngProcedureStartLine As LongPtr
                     lngProcedureStartLine = .ProcBodyLine(strProcedureName, lngProcedureType)
 
                     ' Test for keywords that indicate procedure declaration without defined scope
@@ -912,37 +912,37 @@ Public Sub ToolFindDeclarationsWithoutDefinedDataType()
 
             Dim fDeclarationWithoutDefinedDataType As Boolean
 
-            Dim lngLine As Long
+            Dim lngLine As LongPtr
             Dim strLogicalLine As String
-            Dim lngLogicalLinePhysicalLineCount As Long
+            Dim lngLogicalLinePhysicalLineCount As LongPtr
             Dim strSearchLogicalLine As String
 
-            Dim lngCompoundStatementLine As Long
+            Dim lngCompoundStatementLine As LongPtr
             Dim StrCompoundStatementLogicalLine As String
-            Dim lngCompoundStatementLogicalLinePhysicalLineCount As Long
+            Dim lngCompoundStatementLogicalLinePhysicalLineCount As LongPtr
             Dim StrCompoundStatementSearchLogicalLine As String
-            Dim lngCompoundStatementPhysicalLineCount As Long
+            Dim lngCompoundStatementPhysicalLineCount As LongPtr
             Dim StrCompoundStatementPhysicalLines As String
 
             Dim strProcedureName As String
-            Dim lngProcedureType As Long ' vbext_ProcKind
-            Dim lngProcedureStartLine As Long
-            Dim lngProcedureLineCount As Long
-            Dim lngProcedureLine As Long
+            Dim lngProcedureType As LongPtr ' vbext_ProcKind
+            Dim lngProcedureStartLine As LongPtr
+            Dim lngProcedureLineCount As LongPtr
+            Dim lngProcedureLine As LongPtr
 
-            Dim lngArgumentsStartPosition As Long
-            Dim lngArgumentsEndPosition As Long
+            Dim lngArgumentsStartPosition As LongPtr
+            Dim lngArgumentsEndPosition As LongPtr
             Dim strSearchArguments As String
             Dim astrSearchArguments() As String
-            Dim lngSearchArgumentIndex As Long
-            Dim lngReturnDataTypeStartPosition As Long
+            Dim lngSearchArgumentIndex As LongPtr
+            Dim lngReturnDataTypeStartPosition As LongPtr
 
             Dim strSearchTypeElements As String
             Dim astrSearchTypeElements() As String
-            Dim lngSearchTypeElementIndex As Long
+            Dim lngSearchTypeElementIndex As LongPtr
 
             Dim astrSearchVariables() As String
-            Dim lngSearchVariableIndex As Long
+            Dim lngSearchVariableIndex As LongPtr
 
             ' Cycle through all declaration lines of code
             For lngLine = 1 To .CountOfDeclarationLines
@@ -1215,11 +1215,11 @@ End Sub
 
 Private Function ToolGetCharacterCode( _
     ByRef strCharacters As String, _
-    ByRef lngCharacterPosition As Long) As Integer
+    ByRef lngCharacterPosition As LongPtr) As Integer
 
 On Error Resume Next
 
-    Dim Property As Long
+    Dim Property As LongPtr
 
     ' Purpose:
     ' Return integer for character code of first byte of a string character.
@@ -1238,8 +1238,8 @@ End Function
 
 Private Function ToolGetLogicalLine( _
     ByRef objCodeModule As Object, _
-    ByRef lngPhysicalStartLine As Long, _
-    Optional ByRef lngPhysicalLineCount As Long) As String
+    ByRef lngPhysicalStartLine As LongPtr, _
+    Optional ByRef lngPhysicalLineCount As LongPtr) As String
 
     ' Purpose:
     ' Procedure used to get all physical lines of code that make up a single logical line.
@@ -1270,8 +1270,8 @@ End Function
 
 Private Sub ToolDeleteLogicalLine( _
     ByRef objCodeModule As Object, _
-    ByRef lngPhysicalStartLine As Long, _
-    Optional ByRef lngPhysicalLineCount As Long)
+    ByRef lngPhysicalStartLine As LongPtr, _
+    Optional ByRef lngPhysicalLineCount As LongPtr)
 
     ' Purpose:
     ' Procedure used to delete all physical lines of code that make up a single logical line.
@@ -1302,7 +1302,7 @@ End Sub
 
 Private Function ToolCharacterIsWhiteSpace( _
     ByRef strLogicalLine As String, _
-    ByRef lngCharacterPosition As Long) As Boolean
+    ByRef lngCharacterPosition As LongPtr) As Boolean
 
     ' Purpose:
     ' Return true if character at position is white-space.
@@ -1369,7 +1369,7 @@ End Function
 
 Private Function ToolCharacterIsSpecialToken( _
     ByRef strLogicalLine As String, _
-    ByRef lngCharacterPosition As Long) As Boolean
+    ByRef lngCharacterPosition As LongPtr) As Boolean
 
     ' Purpose:
     ' Return true if character at position is special-token.
@@ -1429,8 +1429,8 @@ End Function
 
 Private Function ToolTokenIsDelimited( _
     ByRef strLogicalLine As String, _
-    ByRef lngTokenPosition As Long, _
-    ByRef lngTokenLength As Long) As Boolean
+    ByRef lngTokenPosition As LongPtr, _
+    ByRef lngTokenLength As LongPtr) As Boolean
 
     ' Purpose:
     ' Return true if token is left and right delimited by any character that
@@ -1439,7 +1439,7 @@ Private Function ToolTokenIsDelimited( _
     ' Valid delimiter characters were found by attempting to right delimit the
     ' Rem keyword with all characters that have a character code from 0 to 255.
     ' The Rem keyword was chosen because it starts a comment therefore any
-    ' character after Rem keyword should be valid as long as it delimits the
+    ' character after Rem keyword should be valid As LongPtr as it delimits the
     ' Rem keyword.  Test results indicated:
     ' 1. No characters that have a character code > 127 can be used as a delimiter.
     ' 2. All characters that have a character code =< 127 can be used as a delimiter
@@ -1463,7 +1463,7 @@ Private Function ToolTokenIsDelimited( _
         ' Build array that returns true when index is character code
         ' of character that is a valid token delimiter character.
         Static sabyteDelimiterCharacterCodes(255) As Boolean
-        Dim lngDelimiterCharacterCodeIndex As Long
+        Dim lngDelimiterCharacterCodeIndex As LongPtr
         For lngDelimiterCharacterCodeIndex = 0 To 47
             sabyteDelimiterCharacterCodes(lngDelimiterCharacterCodeIndex) = True
         Next
@@ -1517,8 +1517,8 @@ End Function
 
 Private Function ToolTokenIsDelimitedIfNeeded( _
     ByRef strLogicalLine As String, _
-    ByRef lngTokenPosition As Long, _
-    ByRef lngTokenLength As Long, _
+    ByRef lngTokenPosition As LongPtr, _
+    ByRef lngTokenLength As LongPtr, _
     ByRef tttTokenType As tttcToolTokenType) As Boolean
 
     ' Purpose:
@@ -1549,13 +1549,13 @@ End Function
 
 Private Function ToolGetFirstTokenPosition( _
     ByRef strLogicalLine As String, _
-    ByRef lngSearchStart As Long, _
-    ByRef fSearchForward As Boolean) As Long
+    ByRef lngSearchStart As LongPtr, _
+    ByRef fSearchForward As Boolean) As LongPtr
 
     ' Purpose:
     ' Return position of first token found (i.e. first character that is not white-space).
 
-    Dim lngCharacterPosition As Long
+    Dim lngCharacterPosition As LongPtr
     If fSearchForward Then
         For lngCharacterPosition = lngSearchStart To Len(strLogicalLine)
             If Not ToolCharacterIsWhiteSpace(strLogicalLine, lngCharacterPosition) Then
@@ -1609,7 +1609,7 @@ Private Function ToolParseLogicalLine( _
         ' Build array that returns true when index is character code
         ' of valid hexadecimal symbol character
         Static sabyteHexadecimalSymbolCharacterCodes(255) As Boolean
-        Dim lngHexadecimalLiteralCharacterCodeIndex As Long
+        Dim lngHexadecimalLiteralCharacterCodeIndex As LongPtr
         For lngHexadecimalLiteralCharacterCodeIndex = 48 To 57  '  0 through 9
             sabyteHexadecimalSymbolCharacterCodes(lngHexadecimalLiteralCharacterCodeIndex) = True
         Next
@@ -1623,7 +1623,7 @@ Private Function ToolParseLogicalLine( _
         ' Build array that returns true when index is character code
         ' of valid octal symbol character
         Static sabyteOctalSymbolCharacterCodes(255) As Boolean
-        Dim lngOctalLiteralCharacterCodeIndex As Long
+        Dim lngOctalLiteralCharacterCodeIndex As LongPtr
         For lngOctalLiteralCharacterCodeIndex = 48 To 55 ' 0 through 7
             sabyteOctalSymbolCharacterCodes(lngOctalLiteralCharacterCodeIndex) = True
         Next
@@ -1631,7 +1631,7 @@ Private Function ToolParseLogicalLine( _
         ' Build array that returns true when index is character code
         ' of valid decimal symbol character
         Static sabyteDecimalSymbolCharacterCodes(255) As Boolean
-        Dim lngDecimalLiteralCharacterCodeIndex As Long
+        Dim lngDecimalLiteralCharacterCodeIndex As LongPtr
         For lngDecimalLiteralCharacterCodeIndex = 48 To 57 ' 0 through 9
             sabyteDecimalSymbolCharacterCodes(lngDecimalLiteralCharacterCodeIndex) = True
         Next
@@ -1639,7 +1639,7 @@ Private Function ToolParseLogicalLine( _
         ' Build array that returns true when index is character code
         ' of letter or underscore character
         Static sabyteLetterOrUnderscoreCharacterCodes(255) As Boolean
-        Dim lngLetterOrUnderscoreCharacterCodeIndex As Long
+        Dim lngLetterOrUnderscoreCharacterCodeIndex As LongPtr
         For lngLetterOrUnderscoreCharacterCodeIndex = 65 To 90 ' A through Z
             sabyteLetterOrUnderscoreCharacterCodes(lngLetterOrUnderscoreCharacterCodeIndex) = True
         Next
@@ -1668,12 +1668,12 @@ Private Function ToolParseLogicalLine( _
     strReturnLogicalLine = strLogicalLine
 
     ' Get length of logical line
-    Dim lngLogicalLineLength As Long
+    Dim lngLogicalLineLength As LongPtr
     lngLogicalLineLength = Len(strLogicalLine)
 
     ' Cycle through all characters in logical line blanking literals and comments
     ' as we go.
-    Dim lngCharacterPosition As Long
+    Dim lngCharacterPosition As LongPtr
     For lngCharacterPosition = 1 To lngLogicalLineLength
 
         Dim intCharacterCode As Integer
@@ -1693,7 +1693,7 @@ Private Function ToolParseLogicalLine( _
                 If fOverwriteCommentWithWhiteSpace Then
 
                     ' Get length of comment
-                    Dim lngCommentLength As Long
+                    Dim lngCommentLength As LongPtr
                     lngCommentLength = lngLogicalLineLength - lngCharacterPosition + 1
 
                     ' Overwrite comment with white space
@@ -1713,7 +1713,7 @@ Private Function ToolParseLogicalLine( _
                 ' 3. To enclose a string literal.
 
                 ' Find end of string literal
-                Dim lngStringLiteralCharacterPosition As Long
+                Dim lngStringLiteralCharacterPosition As LongPtr
                 For lngStringLiteralCharacterPosition = lngCharacterPosition + 1 To lngLogicalLineLength
                     ' Test if character is " indicating end of string literal
                     If ToolGetCharacterCode(strLogicalLine, lngStringLiteralCharacterPosition) = 34 Then
@@ -1727,7 +1727,7 @@ Private Function ToolParseLogicalLine( _
                 Next
 
                 ' Get length of string literal
-                Dim lngStringLiteralLength As Long
+                Dim lngStringLiteralLength As LongPtr
                 lngStringLiteralLength = lngStringLiteralCharacterPosition - lngCharacterPosition + 1
 
                 ' Overwrite string literal with white space if enabled
@@ -1750,7 +1750,7 @@ Private Function ToolParseLogicalLine( _
                 '    to indicate number data type of double.
 
                 ' Find end of date literal
-                Dim lngDateLiteralCharacterPosition As Long
+                Dim lngDateLiteralCharacterPosition As LongPtr
                 For lngDateLiteralCharacterPosition = lngCharacterPosition + 1 To lngLogicalLineLength
                     ' Test if character is # indicating end of date literal
                     If ToolGetCharacterCode(strLogicalLine, lngDateLiteralCharacterPosition) = 35 Then
@@ -1760,7 +1760,7 @@ Private Function ToolParseLogicalLine( _
                 Next
 
                 ' Get length of date literal
-                Dim lngDateLiteralLength As Long
+                Dim lngDateLiteralLength As LongPtr
                 lngDateLiteralLength = lngDateLiteralCharacterPosition - lngCharacterPosition + 1
 
                 ' Overwrite date literal with white space if enabled
@@ -1791,7 +1791,7 @@ Private Function ToolParseLogicalLine( _
                         Case 72, 104 ' H, h
 
                             ' Find position 1 character after end of hexadecimal literal
-                            Dim lngHexadecimalLiteralCharacterPosition As Long
+                            Dim lngHexadecimalLiteralCharacterPosition As LongPtr
                             For lngHexadecimalLiteralCharacterPosition = lngCharacterPosition + 2 To lngLogicalLineLength + 1
                                 Dim intHexadecimalLiteralCharacterCode As Integer
                                 intHexadecimalLiteralCharacterCode = ToolGetCharacterCode(strLogicalLine, lngHexadecimalLiteralCharacterPosition)
@@ -1804,7 +1804,7 @@ Private Function ToolParseLogicalLine( _
                             Next
 
                             ' Get length of hexadecimal literal
-                            Dim lngHexadecimalLiteralLength As Long
+                            Dim lngHexadecimalLiteralLength As LongPtr
                             lngHexadecimalLiteralLength = lngHexadecimalLiteralCharacterPosition - lngCharacterPosition
 
                             ' Overwrite hexadecimal literal with white space if enabled
@@ -1821,7 +1821,7 @@ Private Function ToolParseLogicalLine( _
                         Case 79, 111 ' O, o
 
                             ' Find position 1 character after end of octal literal
-                            Dim lngOctalLiteralCharacterPosition As Long
+                            Dim lngOctalLiteralCharacterPosition As LongPtr
                             For lngOctalLiteralCharacterPosition = lngCharacterPosition + 2 To lngLogicalLineLength + 1
                                 Dim intOctalLiteralCharacterCode As Integer
                                 intOctalLiteralCharacterCode = ToolGetCharacterCode(strLogicalLine, lngOctalLiteralCharacterPosition)
@@ -1834,7 +1834,7 @@ Private Function ToolParseLogicalLine( _
                             Next
 
                             ' Get length of octal literal
-                            Dim lngOctalLiteralLength As Long
+                            Dim lngOctalLiteralLength As LongPtr
                             lngOctalLiteralLength = lngOctalLiteralCharacterPosition - lngCharacterPosition
 
                             ' Overwrite octal literal with white space if enabled
@@ -1859,7 +1859,7 @@ Private Function ToolParseLogicalLine( _
                     If sabyteLetterOrUnderscoreCharacterCodes(ToolGetCharacterCode(strLogicalLine, lngCharacterPosition - 1)) Then
 
                         ' Find position 1 character after end of decimal symbol sequence within an identifier
-                        Dim lngDecimalSymbolSequenceCharacterPosition As Long
+                        Dim lngDecimalSymbolSequenceCharacterPosition As LongPtr
                         For lngDecimalSymbolSequenceCharacterPosition = lngCharacterPosition + 1 To lngLogicalLineLength + 1
                             Dim intDecimalSymbolSequenceCharacterCode As Integer
                             intDecimalSymbolSequenceCharacterCode = ToolGetCharacterCode(strLogicalLine, lngDecimalSymbolSequenceCharacterPosition)
@@ -1872,7 +1872,7 @@ Private Function ToolParseLogicalLine( _
                         Next
 
                         ' Get length of decimal symbol sequence within an identifier
-                        Dim lngDecimalSymbolSequenceLength As Long
+                        Dim lngDecimalSymbolSequenceLength As LongPtr
                         lngDecimalSymbolSequenceLength = lngDecimalSymbolSequenceCharacterPosition - lngCharacterPosition
 
                         ' Set character position to last character of decimal symbol sequence within an identifier so that
@@ -1882,7 +1882,7 @@ Private Function ToolParseLogicalLine( _
                     Else
 
                         ' Find position 1 character after end of decimal literal
-                        Dim lngDecimalLiteralCharacterPosition As Long
+                        Dim lngDecimalLiteralCharacterPosition As LongPtr
                         For lngDecimalLiteralCharacterPosition = lngCharacterPosition + 1 To lngLogicalLineLength + 1
                             Dim intDecimalLiteralCharacterCode As Integer
                             intDecimalLiteralCharacterCode = ToolGetCharacterCode(strLogicalLine, lngDecimalLiteralCharacterPosition)
@@ -1903,7 +1903,7 @@ Private Function ToolParseLogicalLine( _
                         Next
 
                         ' Get length of decimal literal
-                        Dim lngDecimalLiteralLength As Long
+                        Dim lngDecimalLiteralLength As LongPtr
                         lngDecimalLiteralLength = lngDecimalLiteralCharacterPosition - lngCharacterPosition
 
                         ' Overwrite decimal literal with white space if enabled
@@ -1945,10 +1945,10 @@ End Function
 
 Private Function ToolGetTokenPosition( _
     ByRef strSearchLogicalLine As String, _
-    ByRef lngSearchStart As Long, _
+    ByRef lngSearchStart As LongPtr, _
     ByRef fSearchForward As Boolean, _
     ByRef strToken As String, _
-    ByRef tttTokenType As tttcToolTokenType) As Long
+    ByRef tttTokenType As tttcToolTokenType) As LongPtr
 
     ' Purpose:
     ' Return position of token.
@@ -1967,13 +1967,13 @@ Private Function ToolGetTokenPosition( _
     ' everytime a token is searched for.
 
     ' Get length of token
-    Dim lngTokenLength As Long
+    Dim lngTokenLength As LongPtr
     lngTokenLength = Len(strToken)
 
     Do
 
         ' Find first/next token position
-        Dim lngTokenPosition As Long
+        Dim lngTokenPosition As LongPtr
         If fSearchForward Then
             lngTokenPosition = InStr(lngSearchStart, strSearchLogicalLine, strToken, vbBinaryCompare)
         Else
@@ -2011,7 +2011,7 @@ Public Sub ToolListVBComponents()
 
     #If False Then
 
-        Dim lngComponentIndex As Long
+        Dim lngComponentIndex As LongPtr
         For lngComponentIndex = 1 To Application.VBE.ActiveVBProject.VBComponents.Count - 1
             Debug.Print Application.VBE.ActiveVBProject.VBComponents(lngComponentIndex).Name
         Next
@@ -2038,7 +2038,7 @@ Public Sub ToolListCodeModuleProcedures(ByRef objCodeModule As VBIDE.CodeModule)
     With objCodeModule
 
         ' Cycle through all non declaration lines of code
-        Dim lngNonDeclarationLine As Long
+        Dim lngNonDeclarationLine As LongPtr
         For lngNonDeclarationLine = .CountOfDeclarationLines + 1 To .CountOfLines
 
             ' Get procedure name for current line of code
@@ -2071,7 +2071,7 @@ End Sub
 
 Public Sub ToolFindValidIdentifierAndKeywordDelimiters()
 
-Dim i As Long
+Dim i As LongPtr
 For i = 0 To 255
     Debug.Print "Rem" & Chr(i) & "' " & i
 Next
@@ -2079,7 +2079,7 @@ Next
 ' Above code attemps to right delimit Rem keyword will all characters that
 ' have a character code from 0 to 255. The Rem keyword was chosen because
 ' it starts a comment therefore any character after Rem keyword should
-' be valid as long as it is delimits the Rem keyword.
+' be valid As LongPtr as it is delimits the Rem keyword.
 ' Results of test indicate that:
 ' 1. No character with a character code > 127 can be used as a delimiter.
 ' 2. All characters with a character code =< 127 can be used as a delimiter
@@ -2092,7 +2092,7 @@ Next
 ' Valid delimiter characters were found by attempting to right delimit the
 ' Rem keyword with all characters that have a character code from 0 to 255.
 ' The Rem keyword was chosen because it starts a comment therefore any
-' character after Rem keyword should be valid as long as it delimits the
+' character after Rem keyword should be valid As LongPtr as it delimits the
 ' Rem keyword.  Test results indicated:
 ' 1. No characters that have a character code > 127 can be used as a delimiter.
 ' 2. All characters that have a character code =< 127 can be used as a delimiter
@@ -2383,7 +2383,7 @@ Public Function ToolTestToolGetBlankedLogicalLine()
     ' 3624 to 3637
 
     Dim strSearchLogicalLine As String
-    Dim lngCounter As Long
+    Dim lngCounter As LongPtr
 
     ToolStartTimer
     For lngCounter = 1 To 100000

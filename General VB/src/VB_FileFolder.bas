@@ -60,35 +60,28 @@ End Function
 
 Public Function GetRelativePathViaParent(Optional ByVal strPath)
 'Usage for up 2 dirs is GetRelativePathViaParent("..\..\Destination")
-Dim strCurrentPath As String, strVal As String
-Dim oThisApplication As Object:    Set oThisApplication = Application
-Dim fIsServerPath As Boolean: fIsServerPath = False
-Dim aryCurrentFolder As Variant, aryParentPath As Variant
+    Dim strCurrentPath As String, strVal As String
+    Dim oThisApplication As Object:    Set oThisApplication = Application
     Select Case True
         Case InStrRev(oThisApplication.Name, "Excel") > 0
             strCurrentPath = oThisApplication.ThisWorkbook.Path
         Case InStrRev(oThisApplication.Name, "Access") > 0
             strCurrentPath = oThisApplication.CurrentProject.Path
     End Select
+    Dim fIsServerPath As Boolean: fIsServerPath = False
     If Left(strCurrentPath, 2) = "\\" Then
         strCurrentPath = Right(strCurrentPath, Len(strCurrentPath) - 2)
         fIsServerPath = True
     End If
+    Dim aryCurrentFolder As Variant
     aryCurrentFolder = Split(strCurrentPath, "\")
-    If IsMissing(strPath) Then
-        strPath = vbNullString
-    End If
+    Dim aryParentPath As Variant
     aryParentPath = Split(strPath, "..\")
     If fIsServerPath Then
         aryCurrentFolder(0) = "\\" & aryCurrentFolder(0)
     End If
-    Dim intDir As Integer, intParentCount As Integer
-    If UBound(aryParentPath) = -1 Then
-        intParentCount = 0
-    Else
-        intParentCount = UBound(aryParentPath)
-    End If
-    For intDir = 0 To UBound(aryCurrentFolder) - intParentCount
+    Dim intDir As Integer
+    For intDir = 0 To UBound(aryCurrentFolder) - UBound(aryParentPath) - 1
         strVal = strVal & aryCurrentFolder(intDir) & "\"
     Next
     strVal = StripTrailingBackSlash(strVal)
