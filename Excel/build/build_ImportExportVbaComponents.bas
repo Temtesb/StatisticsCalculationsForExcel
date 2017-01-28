@@ -1,4 +1,4 @@
-Attribute VB_Name = "build_ImportExportBas"
+Attribute VB_Name = "build_ImportExportVbaComponents"
 Option Explicit
 'Authored 2014-2017 by Jeremy Dean Gerdes <jeremy.gerdes@navy.mil>
     'Public Domain in the United States of America,
@@ -20,11 +20,12 @@ Option Explicit
 #If True Then 'can only execute on a macro trusted platform
 Private mobjThisVbeProject As Object
 
-Public Sub ToolExportAllModualsAsBas()
+Public Sub ToolExportModules(Optional fDeleteFromWorkbookOnExport As Boolean = False)
 'Allways export while the file is in the respective Build folder
 Dim strComponentName As String, strCurrent_FilePath As String
 Dim fso As Object, objFile As Object, objFolder As Object
 Dim intCurrentComponent As Integer, intVbCompontentsCount As Integer
+mSetThisVbeProject
 'Force late binding on applicaton so we can compile and only at runtime do those lines of code execute that are appropriate
     Set fso = CreateObject("Scripting.FileSystemObject")
     strCurrent_FilePath = GetRelativePathViaParent()
@@ -34,10 +35,12 @@ Dim intCurrentComponent As Integer, intVbCompontentsCount As Integer
         'Generic code for all (name begins with 'VB_'): /Generic VB/src
     Set fso = CreateObject("Scripting.FileSystemObject")
     'Ensure the Export Directories exists, build them if needed
-    intVbCompontentsCount = Application.VBE.ActiveVBProject.VBComponents.Count
+    intVbCompontentsCount = mobjThisVbeProject.VBComponents.Count
     Dim strDestinationPath As String
-    For intCurrentComponent = 1 To intVbCompontentsCount
-        strComponentName = Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent).Name
+    intCurrentComponent = intVbCompontentsCount
+    Do Until intCurrentComponent = 1
+        intCurrentComponent = intCurrentComponent - 1
+        strComponentName = mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Name
         If Left(strComponentName, 5) <> "Form_" And Left(strComponentName, 7) <> "Report_" Then
             Select Case True
                 Case LCase(Left(strComponentName, 3)) = "vb_"
@@ -53,18 +56,21 @@ Dim intCurrentComponent As Integer, intVbCompontentsCount As Integer
                 BuildDir strDestinationPath
             End If
             Dim objTest As Object
-            Set objTest = Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent)
-            Select Case Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent).Type
+            Set objTest = mobjThisVbeProject.VBComponents.Item(intCurrentComponent)
+            Select Case mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Type
                 Case 2 'vbext_ct_ClassModule
-                    Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName & ".cl"
+                    mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName & ".cl"
                 Case 1 'vbext_ct_StdModule
-                    Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName & ".bas"
+                    mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName & ".bas"
                 Case Else
-                    Application.VBE.ActiveVBProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName
+                    mobjThisVbeProject.VBComponents.Item(intCurrentComponent).Export strDestinationPath & "\" & strComponentName
             End Select
+            If fDeleteFromWorkbookOnExport Then
+                mobjThisVbeProject.VBComponents.Remove mobjThisVbeProject.VBComponents.Item(intCurrentComponent)
+            End If
         End If
 NextComponent:
-    Next intCurrentComponent
+    Loop
     Debug.Print "Export complete"
 End Sub
 
