@@ -408,3 +408,238 @@ Sub MultipleRegression()
         .Offset(k, -1) = "Const"
     End With
 End Sub
+
+'-----------------------------------------------------------------------------------------------------------------------
+'Begin calculation for Regression equation
+Sub PerformRegressionEquation()
+    createCalculationWorksheet
+    RegressionEquation
+    
+End Sub
+
+
+Public Function RegressionEquation()
+   'Created by Bill Young
+   'I am not able to figure out how to feed the formula with the ranges
+   'The ranges have to be entered in the code in two locations
+   'Also, inserting the new worksheet for calculations doesn't work when inside this function.
+   'Not sure why this is the case
+    Dim x As Variant, y As Variant, Results As String
+    Dim a As Double
+    Dim b As Double
+    Dim denom As Double
+    Dim aNum As Double
+    Dim bNum As Double
+    Dim xRng As Variant
+    Dim yRng As Variant
+    
+    Dim ws As Object
+    Set ws = Application.Sheets("sheet5")
+    ws.Select
+    
+    'createCalculationWorksheet
+    
+    Set xRng = Range("B1:B7")
+    Set xRng = Range("C1:C7")
+    
+    
+'    If IsArray(x) _
+'    Then
+'        xRng = x
+'    Else
+'        xRng = Array(x)
+'    End If
+'
+'    If IsArray(y) _
+'    Then
+'        yRng = y
+'    Else
+'        yRng = Array(y)
+'    End If
+    
+    ws.Range("B1:B7").Copy _
+        Destination:=Worksheets("RegEqnCalcs").Range("B1")
+        
+    ws.Range("C1:C7").Copy _
+        Destination:=Worksheets("RegEqnCalcs").Range("C1")
+    
+    'xRng.Select
+    'Selection.Copy
+
+    'All regression calculations are performed on RegEqnCalcs
+    'Results are on RegEqnResults
+
+'    Sheets("RegEqnCalcs").Select
+'    Range("B1").Select
+'    ActiveSheet.Paste
+'
+'    yRng.Copy
+'    Sheets("RegEqnCalcs").Select
+'    Range("C1").Select
+'    ActiveSheet.Paste
+    
+    Sheets("RegEqnCalcs").Select
+    
+    Range("D1").Select
+    Selection.Value = "XY"
+    Range("E1").Select
+    Selection.Value = "x^2"
+    Range("F1").Select
+    Selection.Value = "y^2"
+    Range("G1").Select
+    Selection.Value = "Ex"
+    Range("H1").Select
+    Selection.Value = "Ey"
+    Range("I1").Select
+    Selection.Value = "n"
+    Range("J1").Select
+    Selection.Value = "Exy"
+    Range("K1").Select
+    Selection.Value = "Ex^2"
+    Range("L1").Select
+    Selection.Value = "Ey^2"
+    
+    Dim rCounter As Double
+    Set ws = Worksheets("RegEqnCalcs")
+        With ws
+            rCounter = .Cells(.Rows.Count, "B").End(xlUp).Row
+        End With
+    Range("D2:D" & rCounter).Select
+    
+    enterFormulaXY
+    enterFormulaX2
+    enterFormulaY2
+    enterFormulaEx
+    enterFormulaEy
+    enterFormulaN
+    enterFormulaExy
+    enterFormulaEX2
+    enterFormulaEY2
+
+    
+    Dim Ex As Double
+        Ex = Range("G2").Value
+    Dim Ey As Double
+        Ey = Range("H2").Value
+    Dim n As Double
+        n = Range("I2").Value
+        
+        
+    Dim Exy As Double
+        Exy = Range("J2").Value
+    Dim Ex2 As Double
+        Ex2 = Range("K2").Value
+    Dim Ey2 As Double
+        Ey2 = Range("L2").Value
+        
+    denom = n * Ex2 - Ex ^ 2
+
+    Sheets.Add.Name = "RegEqnResults"
+       
+    a = ((Ey * Ex2) - (Ex * Exy)) / denom
+    b = ((n * Exy) - (Ex * Ey)) / denom
+
+    Sheets("RegEqnResults").Select
+    Range("A1").Value = "a"
+    Range("A2").Value = a
+    Range("B1").Value = "b"
+    Range("B2").Value = b
+
+    
+    RegressionEquation = "a = " & a & ";  b = " & b
+Range("A4").Value = "y " & Round(a, 4) & " + " & Round(b, 4)
+    
+   End Function
+Sub enterFormulaXY()
+    'gives XY in coulumn D
+    Dim ws As Object
+    Dim rCounter As Double
+    Dim i As Long
+    Set ws = Worksheets("RegEqnCalcs")
+        
+    With ws
+        rCounter = .Cells(.Rows.Count, "B").End(xlUp).Row
+    End With
+
+    With ws
+        For i = 2 To rCounter
+            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            Then
+                .Range("D" & i).Formula = "=B" & i & "*" & "C" & i
+            End If
+            
+        Next i
+    End With
+End Sub
+
+Sub enterFormulaX2()
+    'gives X^2 in coulumn D
+    Dim ws As Object
+    Dim rCounter As Double
+    Dim i As Long
+    Set ws = Worksheets("RegEqnCalcs")
+        
+    With ws
+        rCounter = .Cells(.Rows.Count, "B").End(xlUp).Row
+    End With
+
+    With ws
+        For i = 2 To rCounter
+            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            Then
+                .Range("E" & i).Formula = "=B" & i & "*" & "B" & i
+            End If
+            
+        Next i
+    End With
+End Sub
+
+Sub enterFormulaY2()
+    'gives X^2 in coulumn D
+    Dim ws As Object
+    Dim rCounter As Double
+    Dim i As Long
+    Set ws = Worksheets("RegEqnCalcs")
+        
+    With ws
+        rCounter = .Cells(.Rows.Count, "B").End(xlUp).Row
+    End With
+
+    With ws
+        For i = 2 To rCounter
+            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            Then
+                .Range("F" & i).Formula = "=C" & i & "*" & "C" & i
+            End If
+            
+        Next i
+    End With
+End Sub
+Sub enterFormulaEx()
+    Range("G2").Formula = "=sum(B:B)"
+End Sub
+Sub enterFormulaEy()
+    Range("H2").Formula = "=sum(C:C)"
+End Sub
+Sub enterFormulaN()
+    Range("I2").Formula = "=COUNT(C:C)"
+End Sub
+Sub enterFormulaExy()
+    Range("J2").Formula = "=SUM(D:D)"
+End Sub
+Sub enterFormulaEX2()
+    Range("K2").Formula = "=SUM(E:E)"
+End Sub
+Sub enterFormulaEY2()
+    Range("L2").Formula = "=SUM(F:F)"
+End Sub
+Private Sub createCalculationWorksheet()
+    Dim ws As Worksheet
+    With ThisWorkbook
+        Set ws = .Sheets.Add(After:=.Sheets(.Sheets.Count))
+        ws.Name = "RegEqnCalcs"
+    End With
+End Sub
+'End calculation for regression equation
+'-----------------------------------------------------------------------------------------------------------------------
+
