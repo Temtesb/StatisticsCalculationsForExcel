@@ -109,27 +109,31 @@ Public Function QuartileFromObject( _
     Dim oExcel As Object
     Dim oAccess As Object
     'Assign any acceptable obect to our aryToProcess
-    Select Case True
-        Case IsRange(obj) And InStrRev(oThisApplication.Name, "Excel") > 0
-            aryTemp = ExcelRangeToNumericSafeArray(obj)
-            If ArrayRank(aryTemp) > 1 Then
-                aryToProcess = ArraySingleFromMultiDimention(aryTemp, intDimentionRank)
-            Else
-                aryToProcess = aryTemp
-            End If
-        Case TypeName(obj) = "Recordset" 'And InStrRev(oThisApplication.Name, "Access") > 0
-            aryToProcess = oThisApplication.GetRows
-        Case TypeName((obj) = "TableDef") Or (TypeName(obj) = "QueryDef")
-            aryToProcess = obj.OpenRecordset(obj.Name).GetRows
-        Case Else
-    End Select
+     Select Case True
+          Case IsRange(obj) And InStrRev(oThisApplication.Name, "Excel") > 0
+               aryTemp = ExcelRangeToNumericSafeArray(obj)
+               If ArrayRank(aryTemp) > 1 Then
+                    aryToProcess = ArraySingleFromMultiDimention(aryTemp, intDimentionRank)
+               Else
+                    aryToProcess = aryTemp
+               End If
+          Case TypeName(obj) = "Recordset" 'And InStrRev(oThisApplication.Name, "Access") > 0
+               If obj.EOF and obj.BOF Then
+                    Err.Raise 3303, Description:="The recordset has no records to process"
+                    Exit Function
+               Else
+                    aryToProcess = obj.GetRows
+               End If
+          Case TypeName((obj) = "TableDef") Or (TypeName(obj) = "QueryDef")
+               aryToProcess = obj.OpenRecordset(obj.Name).GetRows
+     End Select
     If IsArray(obj) Then
         If ArrayRank(obj) > 1 Then
             aryToProcess = ArraySingleFromMultiDimention(aryToProcess, intDimentionRank)
         End If
         QuartileFromObject = Quartile(aryToProcess, quart, qMethod)
     Else
-        Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range" ', word table, access recordset, access tabledef, or access querydef."
+        Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range, access recordset, access tabledef, access querydef."'or word table,"
         Exit Function
     End If
 End Function
