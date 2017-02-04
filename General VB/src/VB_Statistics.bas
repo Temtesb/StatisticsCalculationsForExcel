@@ -64,6 +64,7 @@ End Enum
        Else
            a = Array(rng)
        End If
+     
        For Each x In a 'each element in array
            vt = VarType(x)
            If (vt + 1 > 1 And vt + 1 <= 7) _
@@ -82,8 +83,8 @@ End Enum
        Else
                    MsgBox "No non zero values exist in the supplied data set"
        End If
-   End Function
-
+   End Function'-
+'Metrics that are inversely proportional to time should be averaged using the harmonic meanP
 Public Function IsRange(obj As Variant) As Boolean 'can be run from excel or access
     On Error Resume Next
     Dim strName As String
