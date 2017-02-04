@@ -66,7 +66,8 @@ End Enum
        End If
        For Each x In a 'each element in array
            vt = VarType(x)
-           If vt + 1 > 1 And vt + 1 < 7 _
+           If (vt + 1 > 1 And vt + 1 <= 7) _
+               Or vt = 14 Or vt = 20 _
            Then
                If x + 1 > 0 _
                Then
