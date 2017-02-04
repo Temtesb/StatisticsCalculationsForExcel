@@ -233,20 +233,40 @@ Dim lngElementCount As LongPtr: lngElementCount = (lngUpperBound - lngLowerBound
                         ary = ArraySubset(ary, lngUpperBound - (((lngElementCount - 1) / 2) - 1), lngUpperBound)
                         mGetQuartileFromSortedArray = MedianOfArray(ary, True)
                 End Select
-            Case TodoQmHoggAndLedolter
-            Case TodoQmM_S
-            Case TodoQmLohninger
-            Case TodoQmJ_F
-            Case TodoQmH_L
-            Case TodoQmH_L2
-            Case TodoQmMinitab
-            Case TodoQmSas1
-            Case TodoQmSas2
-            Case TodoQmSas3
+            Case Else
+                MsgBox "This method not yet built"
+                Exit Function
+'           Case TodoQmHoggAndLedolter
+'            Case TodoQmM_S
+'            Case TodoQmLohninger
+'            Case TodoQmJ_F
+'            Case TodoQmH_L
+'            Case TodoQmH_L2
+'            Case TodoQmMinitab
+'            Case TodoQmSas1
+'            Case TodoQmSas2
+'            Case TodoQmSas3
         End Select
     End If
 End Function
 
+Private Function PRankXinArray(vaArray As Variant, x As Variant) As Double
+'From http://stackoverflow.com`/questions/4800913/percentrank-algorithm-in-vba
+    Dim lLower As Long
+    Dim lHigher As Long
+    Dim i As Long
+
+    For i = LBound(vaArray, 1) To UBound(vaArray, 1)
+        If vaArray(i, 1) < x Then
+            lLower = lLower + 1
+        ElseIf vaArray(i, 1) > x Then
+            lHigher = lHigher + 1
+        End If
+    Next i
+
+    PRank = lLower / (lLower + lHigher)
+
+End Function
 
 Public Function CoefficientOfVariation(rng As Range)
 'Created by Bill Young p44
