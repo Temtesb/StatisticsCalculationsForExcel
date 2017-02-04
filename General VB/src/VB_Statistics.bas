@@ -48,96 +48,136 @@ Public Enum QuartileMethod
     TodoQmExcelExcl = 16
 End Enum
 
-   Public Function GeometricMean(rng As Variant)
-   'Created by Bill Young p38
-   'Note: this calculation excludes non-numeric values like Excel's GEOMEAN function.
-   'Unlike GEOMEAN, negative numbers are included.
-   'Still need to confirm that this is the same method used in the /Excel function being used
-       Dim a As Variant
-       Dim x As Variant
-       Dim n As Double
-       Dim v As Double
-       Dim vt As VbVarType
-       If IsArray(rng) _
-       Then
-           a = rng
-       Else
-           a = Array(rng)
-       End If
-     
-       For Each x In a 'each element in array
-           vt = VarType(x)
-           If (vt + 1 > 1 And vt + 1 <= 7) _
-               Or vt = 14 Or vt = 20 _
-           Then
-               If x + 1 > 0 _
-               Then
-                   n = n + 1
-                   v = v + 1 + Log(x + 1)
-               End If
-           End If
-       Next
-       If n _
-       Then
-           GeometricMean = Exp(v / n) - 1
-       Else
-                   MsgBox "No non zero values exist in the supplied data set"
-       End If
-   End Function'-
-'Metrics that are inversely proportional to time should be averaged using the harmonic meanP
-Public Function IsRange(obj As Variant) As Boolean 'can be run from excel or access
-    On Error Resume Next
-    Dim strName As String
-    Select Case True
-        Case InStrRev(Application.Name, "Excel") > 0
-            strName = obj.Range.Name
-            IsRange = Err.Number = 0
-        Case InStrRev(Application.Name, "Access") > 0
-            IsRange = TypeName(obj) = "Range"
-    End Select
+Public Function GeometricMean(rng As Variant)
+'Created by Bill Young p38
+'Note: this calculation excludes non-numeric values like Excel's GEOMEAN function.
+'Unlike GEOMEAN, negative numbers > -1 are included (makes sense for loss rates that are not expected to exceed 100%).
+'Still need to confirm that this is the same method used in the /Excel function being used
+    Dim a As Variant
+    Dim x As Variant
+    Dim n As Double
+    Dim v As Double
+    If IsArray(rng) Then
+        a = rng
+    Else
+        a = Array(rng)
+    End If
+    For Each x In a 'each element in array
+        If mProcessIfIsnumeric(x) Then
+            If x + 1 > 0 _
+            Then
+                n = n + 1
+                v = v + 1 + Log(x + 1)
+            End If
+        End If
+    Next
+    If n _
+    Then
+        GeometricMean = Exp(v / n) - 1
+    Else
+        Err.Raise 3306, Description:="No non zero values exist in the supplied data set"
+    End If
 End Function
 
-Public Function QuartileFromObject( _
-    obj As Variant, _
-    quart As QuartileType, _
-    qMethod As QuartileMethod, _
-    Optional intDimentionRank As Integer _
-) As Double
-    'Plan is to accept multidimetional arrays, excel ranges, word tables, access recordsets, tabledefs, and querydef and process dedicated column for quartile
-    'Using late binding so that we don't have to deal with assigning referances
-    Dim oThisApplication As Object: Set oThisApplication = Application
-    Dim aryTemp() As Variant
-    Dim aryToProcess() As Variant
-    Dim oExcel As Object
-    Dim oAccess As Object
+Public Function HarmonicMean(ary As Variant) 'only accepts positive numbers
+'Note: this calculation excludes non-numeric values like Excel's GEOMEAN function.
+'This function errors if any value is negative, (using negative values is mathmatically possible, but retuns wildly unexpected results)
+'Metrics that are inversely proportional to time should be averaged using the harmonic mean
+'Also useful in calculating average resistance of differing resistors (or cpacitance of capacitors) in series
+'N/(1/n(1)+1/n(2)...)
+Dim varElement As Variant
+Dim lngCount As LongPtr
+Dim dblDenominator As Double
+    For Each varElement In ary
+        If mProcessIfIsnumeric(varElement) Then
+            If varElement > 0 Then
+                lngCount = lngCount + 1
+                dblDenominator = dblDenominator + (1 / varElement)
+            Else
+                If varElement < 0 Then '0's are ignored
+                    Err.Raise 3305, Description:="This function does not accept negative values"
+                End If
+            End If
+        End If
+    Next
+    If lngCount Then
+        HarmonicMean = lngCount / (dblDenominator)
+    Else
+        Err.Raise 3307, Description:="No non zero,postitive values exist in the supplied data set"
+    End If
+End Function
+
+Private Function mProcessIfIsnumeric(ByRef varElement As Variant) As Boolean ' this also converts text numeric values to cdbl
+Dim vt As VbVarType
+    If (vt + 1 > 1 And vt <= 7) _
+        Or vt = 14 Or vt = 20 _
+    Then
+        mProcessIfIsnumeric = True
+    Else
+        If IsNumeric(varElement) Then
+            varElement = CDbl(varElement)
+            mProcessIfIsnumeric = True
+        Else
+            mProcessIfIsnumeric = False
+        End If
+    End If
+End Function
+
+Public Function IsRange(obj As Variant) As Boolean 'can be run from excel or access, or on access or excel range objects
+    On Error Resume Next
+    IsRange = TypeName(obj) = "Range"
+End Function
+
+Private Function GetArrayFromUnknownObjectSouce(ByRef obj As Variant, Optional intDimentionRank As Integer = 0, Optional fUseObjectAppViceRunningApp As Boolean = True) As Variant
     'Assign any acceptable obect to our aryToProcess
-     Select Case True
-          Case IsRange(obj) And InStrRev(oThisApplication.Name, "Excel") > 0
-               aryTemp = ExcelRangeToNumericSafeArray(obj)
-               If ArrayRank(aryTemp) > 1 Then
-                    aryToProcess = ArraySingleFromMultiDimention(aryTemp, intDimentionRank)
-               Else
-                    aryToProcess = aryTemp
-               End If
-          Case TypeName(obj) = "Recordset" 'And InStrRev(oThisApplication.Name, "Access") > 0
-               If obj.EOF and obj.BOF Then
-                    Err.Raise 3303, Description:="The recordset has no records to process"
-                    Exit Function
-               Else
-                    aryToProcess = obj.GetRows
-               End If
-          Case TypeName((obj) = "TableDef") Or (TypeName(obj) = "QueryDef")
-               aryToProcess = obj.OpenRecordset(obj.Name).GetRows
-     End Select
-    If IsArray(obj) Then
-        If ArrayRank(obj) > 1 Then
+    Dim aryToProcess As Variant
+    On Error Resume Next
+    
+    If IsObject(obj) Then
+        Dim strApplicationName As String
+        If fUseObjectAppViceRunningApp Then
+            'This method checks the application of the object "Default"
+            strApplicationName = obj.Application.Name
+        Else
+            'This method checks the current application that is running code
+            'Using late binding so that we don't have to deal with assigning referances
+            Dim oThisApplication As Object: Set oThisApplication = Application
+            strApplicationName = oThisApplication.Name
+        End If
+        Select Case True
+            Case InStr(1, strApplicationName, "Excel")
+                Select Case True
+                    Case IsRange(obj)
+                        aryToProcess = ExcelRangeToNumericSafeArray(obj)
+                End Select
+            Case InStr(1, strApplicationName, "Access")
+                Select Case TypeName(obj)
+                    Case "Recordset"
+                        aryToProcess = obj.GetRows
+                Case "TableDef", "QueryDef"
+                        aryToProcess = obj.OpenRecordset(obj.Name).GetRows
+                End Select
+            'Case InStr(1, strApplicationName,  "Word")
+            'Case InStr(1, strApplicationName, "Powerpoint")
+        End Select
+    End If
+    If aryToProcess Is Nothing Then
+        'if we error anywhere we attempt to set the object directly to an array
+        aryToProcess = obj
+    End If
+    If IsArray(aryToProcess) Then
+        If ArrayRank(aryToProcess) > 1 Then
             aryToProcess = ArraySingleFromMultiDimention(aryToProcess, intDimentionRank)
         End If
-        QuartileFromObject = Quartile(aryToProcess, quart, qMethod)
     Else
-        Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range, access recordset, access tabledef, access querydef."'or word table,"
-        Exit Function
+        aryToProcess = Array(aryToProcess)
+        If Not IsArray(aryToProcess) Then
+            Set aryToProcess = Nothing
+            'Plan is to accept multidimetional arrays, excel ranges, word tables, access recordsets, tabledefs, and querydef and process dedicated column for quartile
+            Err.Raise 3302, Description:="The object passed to the Quartile must be an array, excel range, access recordset, access tabledef, access querydef." 'or word table,"
+        End If
     End If
+    GetArrayFromUnknownObjectSouce = aryToProcess
 End Function
 
 Public Function InterQuartileRange(ByRef ary As Variant, ByRef qMethod As QuartileMethod)
@@ -158,7 +198,8 @@ Public Function Quartile( _
                     ByRef ary As Variant, _
                     ByRef quart As QuartileType, _
                     ByRef qMethod As QuartileMethod, _
-                    Optional fArrayIsPresorted As Boolean = False _
+                    Optional fArrayIsPresorted As Boolean = False, _
+                    Optional intDimentionRank As Integer _
 ) As Double
 'Created by Jeremy Gerdes to remove dependacies on MS Excel
 'Sort array in ascending order
@@ -179,7 +220,8 @@ Public Function Quartile( _
 'http://peltiertech.com/quartiles-for-box-plots/
 'http://dsearls.org/other/CalculatingQuartiles/CalculatingQuartiles.htm
 'http://superuser.com/questions/343339/excel-quartile-function-doesnt-work
-    'try -> Quartile(Split("1,2,3,4",","),QuartileFirst,QmExclusive)
+    'try -> Quartile(Split("1,2,3,4",","),QuartileFirst,QmExclusive) ' this is sorted as text, we expect numeric values
+    ary = GetArrayFromUnknownObjectSouce(ary, intDimentionRank)
     If Not fArrayIsPresorted Then
         SortArrayInPlace ary
     End If
@@ -257,7 +299,9 @@ Dim lngElementCount As LongPtr: lngElementCount = (lngUpperBound - lngLowerBound
 End Function
 
 Private Function PRankXinArray(vaArray As Variant, x As Variant) As Double
+'This function only works if we are not required to interpolate the results (x is in the array)
 'From http://stackoverflow.com`/questions/4800913/percentrank-algorithm-in-vba
+'TODO validate this work!!!
     Dim lLower As Long
     Dim lHigher As Long
     Dim i As Long
@@ -270,7 +314,7 @@ Private Function PRankXinArray(vaArray As Variant, x As Variant) As Double
         End If
     Next i
 
-    PRank = lLower / (lLower + lHigher)
+    PRankXinArray = lLower / (lLower + lHigher)
 
 End Function
 

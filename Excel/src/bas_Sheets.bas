@@ -39,7 +39,7 @@ Dim sht As Worksheet
         Set shtAfter = wkshts(wkshts.Count)
     End If
     
-    Set sht = wkshts.Add(after:=shtAfter)
+    Set sht = wkshts.Add(After:=shtAfter)
     sht.Name = strSheetName
     sht.Activate
     
