@@ -16,6 +16,28 @@ Option Explicit
          'officer or employee of the United States Government as part of that
          'person’s official duties.
          '...
+
+Private Declare Function URLDownloadToFileA Lib "urlmon" (ByVal pCaller As Long, _
+    ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, _
+    ByVal lpfnCB As Long) _
+As Long
+
+Public Function DownloadUrlFileToTemp( _
+    ByVal strUrl As String, _
+    Optional ByVal strDestinationExtension As String = ".txt") _
+As String
+    Dim lngRetVal As Long
+    Dim strTempFilePath As String
+    strTempFilePath = Right(strUrl, Len(strUrl) - InStrRev(strUrl, "/"))
+    strTempFilePath = (Environ$("TEMP") & "\" & strTempFilePath & Format(Now(), "yymmdd") & Timer) & "." & strDestinationExtension
+    lngRetVal = URLDownloadToFileA(0, strUrl, strTempFilePath, 0, 0)
+    If lngRetVal Then
+        Err.Raise Err.LastDllError, , "Download failed."
+    End If
+    DownloadUrlFileToTemp = strTempFilePath
+    Debug.Print strTempFilePath
+End Function
+
 Public Function BuildDir(strPath) As Boolean
     On Error Resume Next
     Dim fso As Object ' As Scripting.FileSystemObject
@@ -98,3 +120,6 @@ Public Function StripTrailingBackSlash(ByRef strPath As String)
             StripTrailingBackSlash = strPath
         End If
 End Function
+
+
+

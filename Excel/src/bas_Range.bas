@@ -309,7 +309,7 @@ Public Function ExcelRangeToNumericSafeArray(ByRef obj As Variant) As Variant
             ReDim ary(lngElementCount)
             Dim c As Variant
             For Each c In obj.Cells
-                ary(lngElement) = CDbl(c.Value)
+                ary(lngElement) = CDbl(c.value)
                 lngElement = lngElement + 1
             Next c
         End If

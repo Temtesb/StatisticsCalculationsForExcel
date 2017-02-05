@@ -36,7 +36,7 @@ Option Explicit
         Zscore = Format((x - m) / s, "Standard")
     End Function
     
-    Public Function CorrelationCoefficient(Xrng As Range, Yrng As Range)
+    Public Function CorrelationCoefficient(xRng As Range, yRng As Range)
         'Created by Bill Young p55
         Dim a As Variant
         Dim Rxy As Variant
@@ -45,18 +45,18 @@ Option Explicit
         Dim Sx As Double
         Dim Sy As Double
         Dim Yx As Double
-        If IsArray(Xrng) _
+        If IsArray(xRng) _
         Then
-            x = Xrng
+            x = xRng
         Else
-            x = Array(Xrng)
+            x = Array(xRng)
         End If
         
-        If IsArray(Yrng) _
+        If IsArray(yRng) _
         Then
-            y = Yrng
+            y = yRng
         Else
-            y = Array(Yrng)
+            y = Array(yRng)
         End If
         Rxy = WorksheetFunction.Covariance_S(x, y)
         Sx = WorksheetFunction.StDev_S(x)
@@ -93,7 +93,7 @@ Option Explicit
         ws.Application.Selection.Copy
         ws.Application.Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
             :=False, Transpose:=False
-        ws.Range("D1").Value = "Count"
+        ws.Range("D1").value = "Count"
         ws.Columns("C:D").Select
         ws.Application.Selection.AutoFilter
         ws.AutoFilter.Sort.SortFields.Clear
@@ -164,7 +164,7 @@ Sub MultipleRegression()
     End With
      
     With Range("M1")
-        .Value = "Coeffs"
+        .value = "Coeffs"
         .Offset(1).Resize(k) = Coeff
         .Offset(, 1) = "SECoef"
         .Offset(1, 1).Resize(k) = SeCo
@@ -190,7 +190,7 @@ Public Function RegressionEquation()
    'The ranges have to be entered in the code in two locations
    'Also, inserting the new worksheet for calculations doesn't work when inside this function.
    'Not sure why this is the case
-    Dim x As Variant, y As Variant, Results As String
+    Dim x As Variant, y As Variant, results As String
     Dim a As Double
     Dim b As Double
     Dim denom As Double
@@ -247,23 +247,23 @@ Public Function RegressionEquation()
     Sheets("RegEqnCalcs").Select
     
     Range("D1").Select
-    Selection.Value = "XY"
+    Selection.value = "XY"
     Range("E1").Select
-    Selection.Value = "x^2"
+    Selection.value = "x^2"
     Range("F1").Select
-    Selection.Value = "y^2"
+    Selection.value = "y^2"
     Range("G1").Select
-    Selection.Value = "Ex"
+    Selection.value = "Ex"
     Range("H1").Select
-    Selection.Value = "Ey"
+    Selection.value = "Ey"
     Range("I1").Select
-    Selection.Value = "n"
+    Selection.value = "n"
     Range("J1").Select
-    Selection.Value = "Exy"
+    Selection.value = "Exy"
     Range("K1").Select
-    Selection.Value = "Ex^2"
+    Selection.value = "Ex^2"
     Range("L1").Select
-    Selection.Value = "Ey^2"
+    Selection.value = "Ey^2"
     
     Dim rCounter As Double
     Set ws = Worksheets("RegEqnCalcs")
@@ -284,19 +284,19 @@ Public Function RegressionEquation()
 
     
     Dim Ex As Double
-        Ex = Range("G2").Value
+        Ex = Range("G2").value
     Dim Ey As Double
-        Ey = Range("H2").Value
+        Ey = Range("H2").value
     Dim n As Double
-        n = Range("I2").Value
+        n = Range("I2").value
         
         
     Dim Exy As Double
-        Exy = Range("J2").Value
+        Exy = Range("J2").value
     Dim Ex2 As Double
-        Ex2 = Range("K2").Value
+        Ex2 = Range("K2").value
     Dim Ey2 As Double
-        Ey2 = Range("L2").Value
+        Ey2 = Range("L2").value
         
     denom = n * Ex2 - Ex ^ 2
 
@@ -306,14 +306,14 @@ Public Function RegressionEquation()
     b = ((n * Exy) - (Ex * Ey)) / denom
 
     Sheets("RegEqnResults").Select
-    Range("A1").Value = "a"
-    Range("A2").Value = a
-    Range("B1").Value = "b"
-    Range("B2").Value = b
+    Range("A1").value = "a"
+    Range("A2").value = a
+    Range("B1").value = "b"
+    Range("B2").value = b
 
     
     RegressionEquation = "a = " & a & ";  b = " & b
-Range("A4").Value = "y " & Round(a, 4) & " + " & Round(b, 4)
+Range("A4").value = "y " & Round(a, 4) & " + " & Round(b, 4)
     
    End Function
 Sub enterFormulaXY()
@@ -329,7 +329,7 @@ Sub enterFormulaXY()
 
     With ws
         For i = 2 To rCounter
-            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            If Len(Trim(.Range("B" & i).value)) <> 0 _
             Then
                 .Range("D" & i).Formula = "=B" & i & "*" & "C" & i
             End If
@@ -351,7 +351,7 @@ Sub enterFormulaX2()
 
     With ws
         For i = 2 To rCounter
-            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            If Len(Trim(.Range("B" & i).value)) <> 0 _
             Then
                 .Range("E" & i).Formula = "=B" & i & "*" & "B" & i
             End If
@@ -373,7 +373,7 @@ Sub enterFormulaY2()
 
     With ws
         For i = 2 To rCounter
-            If Len(Trim(.Range("B" & i).Value)) <> 0 _
+            If Len(Trim(.Range("B" & i).value)) <> 0 _
             Then
                 .Range("F" & i).Formula = "=C" & i & "*" & "C" & i
             End If
