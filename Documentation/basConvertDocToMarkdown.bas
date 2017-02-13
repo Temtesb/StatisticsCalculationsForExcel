@@ -4,17 +4,17 @@ Option Explicit
      'Public Domain in the United States of America,
      'any international rights are waived through the CC0 1.0 Universal public domain dedication <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
      'http://www.copyright.gov/title17/
-     'In accrordance with 17 U.S.C. ¬ß 105 This work is 'noncopyright' or in the 'public domain'
+     'In accrordance with 17 U.S.C. ß 105 This work is 'noncopyright' or in the 'public domain'
          'Subject matter of copyright: United States Government works
          'protection under this title is not available for
          'any work of the United States Government, but the United States
          'Government is not precluded from receiving and holding copyrights
          'transferred to it by assignment, bequest, or otherwise.
-     'as defined by 17 U.S.C ¬ß 101
+     'as defined by 17 U.S.C ß 101
          '...
-         'A ‚Äúwork of the United States Government‚Äù is a work prepared by an
+         'A ìwork of the United States Governmentî is a work prepared by an
          'officer or employee of the United States Government as part of that
-         'person‚Äôs official duties.
+         'personís official duties.
          '...
 
 Public Sub ConvertWordDocumentToMarkdownText()
@@ -23,7 +23,6 @@ Set doc = ActiveDocument
 Dim stl As Style
 Dim sty As Range
 Dim par As Paragraph
-
     For Each sty In doc.StoryRanges
         Dim h As Hyperlink
         Dim rng As Range
@@ -50,32 +49,47 @@ Dim par As Paragraph
                     rng.EndOf
                     rng.SetRange rng.End, rng.End
                     Dim strHtml As String
-                    strHtml = "<img src=""" & h.Address & """ alt=""" & image.Name & """>"
+                    strHtml = "<img src=""" & Trim(h.Address) & """ alt=""" & Trim(image.Name) & """>"
                     rng.Text = strHtml
                 End If
             End If
+            For Each par In sty.ListParagraphs
+                par.Range.Text = "  *" & par.Range.Text 'Should check for the depth of the list item
+            Next
+            
         Next
     Next
     Dim strContent As String
-    For Each par In doc.Paragraphs
+    'Count Paragraphs
+    Dim lngParagraph As Long
+    Dim lngParagraphCount As Long
+    Dim objParagraphs As Paragraphs
+    Set objParagraphs = doc.Paragraphs
+    lngParagraphCount = objParagraphs.Count
+    For lngParagraph = 1 To lngParagraphCount
+        Set par = objParagraphs(lngParagraph)
         Set stl = par.Style
-        Select Case LCase(stl.NameLocal)
-            Case Is = "heading 1"
-                par.Range.Text = "#" & par.Range.Text
-            Case Is = "heading 2"
-                par.Range.Text = "##" & par.Range.Text
-            Case Is = "heading 3"
-                par.Range.Text = "###" & par.Range.Text
-            Case Is = "heading 4"
-                par.Range.Text = "####" & par.Range.Text
-        End Select
-        strContent = strContent & vbCrLf & par.Range.Text
+        If Len(par.Range.Text) > 2 Then
+            Select Case LCase(stl.NameLocal)
+                Case Is = "heading 1"
+                    par.Range.Text = "#" & par.Range.Text
+                Case Is = "heading 2"
+                    par.Range.Text = "##" & par.Range.Text
+                Case Is = "heading 3"
+                    par.Range.Text = "###" & par.Range.Text
+                Case Is = "heading 4"
+                    par.Range.Text = "####" & par.Range.Text
+            End Select
+        End If
+    Next
+    For Each par In objParagraphs
+        strContent = strContent & Chr(10) & par.Range.Text
     Next
     Dim strTempFilePath As String
-    strTempFilePath = Environ("TEMP") & Format(Now(), "yymmddhhss") & Right(Timer, 2) & ".md"
+    strTempFilePath = Environ("TEMP") & Format(Now(), "yymmddhhss") & Right(Timer, 2) & ".txt"
     SaveStringToFile strTempFilePath, strContent
     OpenFileWithExplorer strTempFilePath, False
-    doc.Close False
+    'doc.Close False
 End Sub
 
 Private Sub SaveStringToFile(ByRef strFilePath As String, ByRef strString As String)
