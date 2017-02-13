@@ -699,12 +699,4 @@ values can have a nonzero probability.  (Minitab)
  Zaiontz, C. (n.d.). Shapiro-Wilk Original Test.
  Retrieved January 31, 2017, from
  http://www.real-statistics.com/tests-normality-and-symmetry/statistical-tests-normality-symmetry/shapiro-wilk-test/
-  
-
-
- 
-
-                        
-
- 
-
+ 
