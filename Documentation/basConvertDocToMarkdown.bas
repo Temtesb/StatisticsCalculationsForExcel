@@ -17,40 +17,53 @@ Option Explicit
          'person’s official duties.
          '...
 
+Private Function HyperlinkHasAddress(h As Hyperlink) As Boolean
+On Error Resume Next
+    Dim lngAddressLength
+    lngAddressLength = 0
+    lngAddressLength = Len(h.Address)
+    HyperlinkHasAddress = lngAddressLength > 0
+End Function
+
 Public Sub ConvertWordDocumentToMarkdownText()
 Dim doc As Document
 Set doc = ActiveDocument
 Dim stl As Style
 Dim sty As Range
 Dim par As Paragraph
+    Dim h As Hyperlink
+    Dim rng As Range
+    Dim shp As InlineShape
+    For Each shp In doc.InlineShapes
+        Set h = shp.Hyperlink
+            
+        If HyperlinkHasAddress(h) Then
+            Set rng = shp.Range
+            rng.EndOf
+            rng.SetRange rng.End, rng.End
+            Dim strHtml As String
+            strHtml = "<img src=""" & Trim(h.Address) & """ alt=""" & Trim(shp.Title) & """>"
+            rng.Text = strHtml
+        End If
+        Set h = Nothing
+    Next
+    
     For Each sty In doc.StoryRanges
-        Dim h As Hyperlink
-        Dim rng As Range
         For Each h In sty.Hyperlinks
+            Debug.Print h.Address
             If Len(h.Address) > 0 Then
-                If Len(h.TextToDisplay) > 0 Then
-                    Set rng = h.Range
-                    rng.StartOf
-                    rng.SetRange rng.Start, rng.Start
-                    rng.Text = "["
-                    Set rng = h.Range
+                Set rng = h.Range
+                rng.StartOf
+                rng.SetRange rng.Start, rng.Start
+                rng.Text = "["
+                Set rng = h.Range
+                rng.EndOf
+                rng.SetRange rng.End, rng.End
+                rng.Text = "](" & h.Address & ")"
+                If Right(h.TextToDisplay, 1) = " " Then
                     rng.EndOf
                     rng.SetRange rng.End, rng.End
-                    rng.Text = "](" & h.Address & ")"
-                    If Right(h.TextToDisplay, 1) = " " Then
-                        rng.EndOf
-                        rng.SetRange rng.End, rng.End
-                        rng.Text = rng.Text & " "
-                    End If
-                Else
-                    Dim image As Shape
-                    Set image = h.Shape
-                    Set rng = image.Anchor
-                    rng.EndOf
-                    rng.SetRange rng.End, rng.End
-                    Dim strHtml As String
-                    strHtml = "<img src=""" & Trim(h.Address) & """ alt=""" & Trim(image.Name) & """>"
-                    rng.Text = strHtml
+                    rng.Text = rng.Text & " "
                 End If
             End If
             For Each par In sty.ListParagraphs
@@ -82,16 +95,22 @@ Dim par As Paragraph
             End Select
         End If
     Next
-    For Each par In objParagraphs
-        strContent = strContent & Chr(10) & par.Range.Text
-    Next
+'    For Each par In objParagraphs
+'        strContent = strContent & Chr(10) & par.Range.Text
+'    Next
     Dim strTempFilePath As String
-    strTempFilePath = Environ("TEMP") & Format(Now(), "yymmddhhss") & Right(Timer, 2) & ".txt"
-    SaveStringToFile strTempFilePath, strContent
+    strTempFilePath = doc.Path & "\" & Left(doc.Name, InStrRev(doc.Name, ".") - 1) & ".md"
+'    SaveStringToFile strTempFilePath, strContent
+    doc.SaveAs2 strTempFilePath, WdSaveFormat.wdFormatEncodedText, AddToRecentFiles:=False, Encoding:=MsoEncoding.msoEncodingUTF8
     OpenFileWithExplorer strTempFilePath, False
-    'doc.Close False
 End Sub
 
+Private Function isShape(obj As Variant) As Boolean
+    On Error Resume Next
+    Dim objTest As Shape
+    Set objTest = obj
+    isShape = Err.Number = 0
+End Function
 Private Sub SaveStringToFile(ByRef strFilePath As String, ByRef strString As String)
 On Error GoTo HandleError
 

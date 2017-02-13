@@ -17,7 +17,7 @@ With Infinite Support	5
 Continuous Distributions	6
 Definition:	6
 Supported On A Bounded Interval	6
-Supported On Intervals Of Length 2π – Directional Distributions	12
+Supported On Intervals Of Length 2π - Directional Distributions	12
 Supported On Semi-infinite Intervals, Usually [0,∞)	17
 Supported On The Whole Real Line	18
 With Variable Support	20
@@ -43,10 +43,10 @@ Common Probability Distributions (Joyce, 2016)
 
 #Discrete Distributions
 ##Definition: 
-“A [statistical distribution ](http://mathworld.wolfram.com/StatisticalDistribution.html)whose variables can take on only discrete values. Abramowitz and Stegun (1972, p. 929) give a table of the parameters of most common discrete distributions.” (Weisstein, Discrete Distribution, 2017)
+"A [statistical distribution ](http://mathworld.wolfram.com/StatisticalDistribution.html)whose variables can take on only discrete values. Abramowitz and Stegun (1972, p. 929) give a table of the parameters of most common discrete distributions." (Weisstein, Discrete Distribution, 2017)
 ##With Finite Support
   *The Bernoulli distribution, which takes value 1 with probability p and value 0 with probability q = 1 − p.
-  * / (Weisstein, Wolfram Mathworld, 2017)
+  */<img src="https://github.com/Temtesb/StatisticsCalculationsForExcel/blob/master/Documentation/Images/BernoulliDistribution.png" alt=""> (Weisstein, Wolfram Mathworld, 2017)
   *The Rademacher distribution, which takes value 1 with probability 1/2 and value −1 with probability 1/2.
   *The binomial distribution, which describes the number of successes in a series of independent Yes/No experiments all with the same probability of success.
   *The beta-binomial distribution, which describes the number of successes in a series of independent Yes/No experiments with heterogeneity in the success probability.
@@ -62,7 +62,7 @@ Common Probability Distributions (Joyce, 2016)
   *The beta negative binomial distribution
   *The Boltzmann distribution, a discrete distribution important in statistical physics which describes the probabilities of the various discrete energy levels of a system in thermal equilibrium. It has a continuous analogue. Special cases include: 
   *The Gibbs distribution
-  *The Maxwell–Boltzmann distribution
+  *The Maxwell-Boltzmann distribution
   *The Borel distribution
   *The Champernowne distribution
   *The extended negative binomial distribution
@@ -74,15 +74,15 @@ Common Probability Distributions (Joyce, 2016)
   *The discrete compound Poisson distribution
   *The parabolic fractal distribution
   *The Poisson distribution, which describes a very large number of individually unlikely events that happen in a certain time interval. Related to this distribution are a number of other distributions: the displaced Poisson, the hyper-Poisson, the general Poisson binomial and the Poisson type distributions. 
-  *The Conway–Maxwell–Poisson distribution, a two-parameter extension of the Poisson distribution with an adjustable rate of decay.
+  *The Conway-Maxwell-Poisson distribution, a two-parameter extension of the Poisson distribution with an adjustable rate of decay.
   *The Zero-truncated Poisson distribution, for processes in which zero counts are not observed
-  *The Polya–Eggenberger distribution
+  *The Polya-Eggenberger distribution
   *The Skellam distribution, the distribution of the difference between two independent Poisson-distributed random variables.
   *The skew elliptical distribution
-  *The Yule–Simon distribution
+  *The Yule-Simon distribution
   *The zeta distribution has uses in applied statistics and statistical mechanics, and perhaps may be of interest to number theorists. It is the Zipf distribution for an infinite number of elements.
   *Zipf's law or the Zipf distribution. A discrete power-law distribution, the most famous example of which is the description of the frequency of words in the English language.
-  *The Zipf–Mandelbrot law is a discrete power law distribution which is a generalization of the Zipf distribution.
+  *The Zipf-Mandelbrot law is a discrete power law distribution which is a generalization of the Zipf distribution.
 
 #Continuous Distributions
 ##Definition:
@@ -92,10 +92,10 @@ Common Probability Distributions (Joyce, 2016)
   *The Beta distribution on [0,1], a family of two-parameter distributions with one mode, of which the uniform distribution is a special case, and which is useful in estimating success probabilities.
   *The logitnormal distribution on (0,1).
   */ (Wikipedia)
-  *The Dirac delta function although not strictly a function, is a limiting form of many continuous probability functions. It represents a discrete probability distribution concentrated at 0 — a degenerate distribution — but the notation treats it as if it were a continuous distribution.
+  *The Dirac delta function although not strictly a function, is a limiting form of many continuous probability functions. It represents a discrete probability distribution concentrated at 0 - a degenerate distribution - but the notation treats it as if it were a continuous distribution.
   *The continuous uniform distribution or rectangular distribution on [a,b], where all points in a finite interval are equally likely.
   */ (Wikipedia)
-  *The Irwin–Hall distribution is the distribution of the sum of n i.i.d. U(0,1) random variables.
+  *The Irwin-Hall distribution is the distribution of the sum of n i.i.d. U(0,1) random variables.
   */ (Wikipedia)
   *The Bates distribution is the distribution of the mean of n i.i.d. U(0,1) random variables.
   *The Kent distribution on the three-dimensional sphere.
@@ -103,7 +103,7 @@ Common Probability Distributions (Joyce, 2016)
   *The Kumaraswamy distribution is as versatile as the Beta distribution but has simple closed forms for both the cdf and the pdf.
   */ (Wikipedia)
   *The logarithmic distribution (continuous)
-  *The Marchenko–Pastur distribution is important in the theory of random matrices.
+  *The Marchenko-Pastur distribution is important in the theory of random matrices.
   *The PERT distribution is a special case of the beta distribution
   *The raised cosine distribution
   */ (Wikipedia)
@@ -116,7 +116,7 @@ Common Probability Distributions (Joyce, 2016)
   *The von Mises-Fisher distribution on the N-dimensional sphere has the von Mises distribution as a special case.
   *The Wigner semicircle distribution is important in the theory of random matrices.
 
-##Supported On Intervals Of Length 2π – Directional Distributions
+##Supported On Intervals Of Length 2π - Directional Distributions
   *The von Mises distribution
   */ (Wikipedia)
   *The wrapped normal distribution
@@ -130,12 +130,12 @@ Common Probability Distributions (Joyce, 2016)
   *The wrapped asymmetric Laplace distribution
   *
   */ (Wikipedia)
-  *The Dirac comb of period 2 π although not strictly a function, is a limiting form of many directional distributions. It is essentially a wrapped Dirac delta function. It represents a discrete probability distribution concentrated at 2πn — a degenerate distribution — but the notation treats it as if it were a continuous distribution.
+  *The Dirac comb of period 2 π although not strictly a function, is a limiting form of many directional distributions. It is essentially a wrapped Dirac delta function. It represents a discrete probability distribution concentrated at 2πn - a degenerate distribution - but the notation treats it as if it were a continuous distribution.
   */ (Wikipedia)
 
 ##Supported On Semi-infinite Intervals, Usually [0,∞)
   *The Beta prime distribution
-  *The Birnbaum–Saunders distribution, also known as the fatigue life distribution, is a probability distribution used extensively in reliability applications to model failure times.
+  *The Birnbaum-Saunders distribution, also known as the fatigue life distribution, is a probability distribution used extensively in reliability applications to model failure times.
   *The chi distribution 
   *The noncentral chi distribution
   *The chi-squared distribution, which is the sum of the squares of n independent Gaussian random variables. It is a special case of the Gamma distribution, and it is used in goodness-of-fit tests in statistics. 
@@ -181,11 +181,11 @@ Common Probability Distributions (Joyce, 2016)
   *The Weibull distribution or Rosin Rammler distribution, of which the exponential distribution is a special case, is used to model the lifetime of technical devices and is used to describe the particle size distribution of particles generated by grinding, milling and crushing operations.
 
 ##Supported On The Whole Real Line
-  *The Behrens–Fisher distribution, which arises in the Behrens–Fisher problem.
+  *The Behrens-Fisher distribution, which arises in the Behrens-Fisher problem.
   *The Cauchy distribution, an example of a distribution which does not have an expected value or a variance. In physics it is usually called a Lorentzian profile, and is associated with many processes, including resonance energy distribution, impact and natural spectral line broadening and quadratic stark line broadening.
   *Chernoff's distribution
   *The Exponentially modified Gaussian distribution, a convolution of a normal distribution with an exponential distribution.
-  *The Fisher–Tippett, extreme value, or log-Weibull distribution
+  *The Fisher-Tippett, extreme value, or log-Weibull distribution
   *Fisher's z-distribution
   *The skewed generalized t distribution
   *The generalized logistic distribution
@@ -211,7 +211,7 @@ Common Probability Distributions (Joyce, 2016)
   *The noncentral t-distribution
   *The skew t distribution
   *The type-1 Gumbel distribution
-  *The Tracy–Widom distribution
+  *The Tracy-Widom distribution
   *The Voigt distribution, or Voigt profile, is the convolution of a normal distribution and a Cauchy distribution. It is found in spectroscopy when spectral line profiles are broadened by a mixture of Lorentzian and Doppler broadening mechanisms.
   *The Gaussian minus exponential distribution is a convolution of a normal distribution with (minus) an exponential distribution.
   *The Chen distribution.
@@ -230,7 +230,7 @@ Common Probability Distributions (Joyce, 2016)
 ##Two or More Random Variables On The Sample Space
   *The Dirichlet distribution, a generalization of the beta distribution.
   *The Ewens's sampling formula is a probability distribution on the set of all partitions of an integer n, arising in population genetics.
-  *The Balding–Nichols model
+  *The Balding-Nichols model
   *The multinomial distribution, a generalization of the binomial distribution.
   *The multivariate normal distribution, a generalization of the normal distribution.
   *The multivariate t-distribution, a generalization of the Student's t-distribution.
@@ -260,7 +260,7 @@ Sonnier, R. (n.d.). Kolmogorov Smirnov VBA Code. Retrieved January 31, 2017, fro
 Weisstein, E. (2017, January 31). Discrete Distribution. Retrieved January 31, 2017, from http://mathworld.wolfram.com/DiscreteDistribution.html
 Weisstein, E. (2017, January 31). Wolfram Mathworld. Retrieved January 31, 2017, from http://mathworld.wolfram.com/BernoulliDistribution.html
 Wikipedia. (n.d.). Dirac comb. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/Dirac_comb
-Wikipedia. (n.d.). Irwin–Hall distribution. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution
+Wikipedia. (n.d.). Irwin-Hall distribution. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution
 Wikipedia. (n.d.). Kent distribution. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/Kent_distribution
 Wikipedia. (n.d.). Kumaraswamy distribution. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/Kumaraswamy_distribution
 Wikipedia. (n.d.). List of Probability Distributions. Retrieved January 31, 2017, from https://en.wikipedia.org/wiki/List_of_probability_distributions
@@ -285,7 +285,7 @@ Zaiontz, C. (n.d.). Shapiro-Wilk Original Test. Retrieved January 31, 2017, from
 
 
 
-Document10Page 14
+Document10Page 3
 
 
 
