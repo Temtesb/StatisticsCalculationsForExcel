@@ -1,7 +1,9 @@
-﻿#Statistical Distributions
-#By
-#Bill Young
-
+﻿	
+Statistical Distributions
+By
+Bill Young
+
+
 
 Contents
 Tests	4
@@ -27,9 +29,11 @@ Non-numeric Distributions	21
 Miscellaneous Distributions	21
 Works Cited	22
 
-
 
-###Tests
+
+
+
+#Tests
 ##Shapiro-Wilk Normality Test
  (Zaiontz, Shapiro-Wilk Original Test) (Zaiontz, Shapiro-Wilk Expanded Test)
 ##Kolmogorov-Smirnov
@@ -37,9 +41,9 @@ Works Cited	22
 #General Information
 Common Probability Distributions (Joyce, 2016)
 
-###Discrete Distributions
+#Discrete Distributions
 ##Definition: 
-“A [[statistical distribution ](http://mathworld.wolfram.com/StatisticalDistribution.html)](http://mathworld.wolfram.com/StatisticalDistribution.html)whose variables can take on only discrete values. Abramowitz and Stegun (1972, p. 929) give a table of the parameters of most common discrete distributions.” (Weisstein, Discrete Distribution, 2017)
+“A [statistical distribution ](http://mathworld.wolfram.com/StatisticalDistribution.html)whose variables can take on only discrete values. Abramowitz and Stegun (1972, p. 929) give a table of the parameters of most common discrete distributions.” (Weisstein, Discrete Distribution, 2017)
 ##With Finite Support
   *The Bernoulli distribution, which takes value 1 with probability p and value 0 with probability q = 1 − p.
   * / (Weisstein, Wolfram Mathworld, 2017)
@@ -80,7 +84,7 @@ Common Probability Distributions (Joyce, 2016)
   *Zipf's law or the Zipf distribution. A discrete power-law distribution, the most famous example of which is the description of the frequency of words in the English language.
   *The Zipf–Mandelbrot law is a discrete power law distribution which is a generalization of the Zipf distribution.
 
-###Continuous Distributions
+#Continuous Distributions
 ##Definition:
  A continuous random variable is a random variable with a set of possible values (known as the range or support) that is infinite and uncountable. Probabilities of continuous random variables (X) are defined as the area under the curve of its distribution. Thus, only ranges of values can have a nonzero probability.  (Minitab)
 ##Supported On A Bounded Interval
@@ -222,7 +226,7 @@ Common Probability Distributions (Joyce, 2016)
   *The rectified Gaussian distribution replaces negative values from a normal distribution with a discrete component at zero.
   *The compound poisson-gamma or Tweedie distribution is continuous over the strictly positive real numbers, with a mass at zero.
 
-###Joint Distributions
+#Joint Distributions
 ##Two or More Random Variables On The Sample Space
   *The Dirichlet distribution, a generalization of the beta distribution.
   *The Ewens's sampling formula is a probability distribution on the set of all partitions of an integer n, arising in population genetics.
@@ -239,15 +243,16 @@ Common Probability Distributions (Joyce, 2016)
   *The matrix normal distribution
   *The matrix t-distribution
 
-##Non-numeric Distributions
-##  *The categorical distribution
+#Non-numeric Distributions
+#  *The categorical distribution
 #Miscellaneous Distributions
   *The Cantor distribution
   *The generalized logistic distribution family
   *The Pearson distribution family
   *The phase-type distribution
 
-
+
+
 #Works Cited
 Joyce, D. (2016). Common probability distributionsI. Retrieved January 31, 2017, from http://aleph0.clarku.edu/~djoyce/ma218/distributions.pdf
 Minitab. (n.d.). What is a continuous distribution? Retrieved January 31, 2017, from http://support.minitab.com/en-us/minitab/17/topic-library/basic-statistics-and-graphs/probability-distributions-and-random-data/basics/continuous-distribution/
@@ -273,4 +278,17 @@ Zaiontz, C. (n.d.). Shapiro-Wilk Original Test. Retrieved January 31, 2017, from
 
 
 		
+
+
+
+0Document102/13/2017
+
+
+
+Document10Page 14
+
+
+
+
+
 
