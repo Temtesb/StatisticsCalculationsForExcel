@@ -1590,7 +1590,7 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><span style='mso-tab-count:1'>            </span></p>
+<p class=MsoNormal><span style='mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â  </span></p>
 
 <p class=MsoNormal align=center style='text-align:center'>Statistical
 Distributions</p>
@@ -1620,7 +1620,7 @@ page-break-before:always'>
  color:windowtext;mso-fareast-language:EN-US;font-weight:normal'><w:sdtPr></w:sdtPr></span></p>
  <p class=MsoToc1 style='tab-stops:right dotted 467.5pt'><!--[if supportFields]><span
  style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>TOC \o &quot;1-3&quot; \h \z \u <span
+ style='mso-spacerun:yes'>Â </span>TOC \o &quot;1-3&quot; \h \z \u <span
  style='mso-element:field-separator'></span><![endif]--><a href="#_Toc474750227"><span
  style='mso-no-proof:yes'>Tests</span><span style='color:windowtext;display:
  none;mso-hide:screen;mso-no-proof:yes;text-decoration:none;text-underline:
@@ -1823,7 +1823,7 @@ page-break-before:always'>
  mso-no-proof:yes'><o:p></o:p></span></p>
  <p class=MsoToc2 style='tab-stops:right dotted 467.5pt'><a
  href="#_Toc474750238"><span style='mso-no-proof:yes'>Supported On Intervals Of
- Length 2&#960; – Directional Distributions</span><span style='color:windowtext;
+ Length 2&#960; Â– Directional Distributions</span><span style='color:windowtext;
  display:none;mso-hide:screen;mso-no-proof:yes;text-decoration:none;text-underline:
  none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
  style='color:windowtext;display:none;mso-hide:screen;mso-no-proof:yes;
@@ -2054,15 +2054,15 @@ color:#365F91;mso-themecolor:accent1;mso-themeshade:191'><o:p>&nbsp;</o:p></span
 
 <h2><a name="_Toc474750228">Shapiro-Wilk Normality Test</a></h2>
 
-<p class=MsoNormal><span style='mso-spacerun:yes'> </span><w:Sdt Citation="t"
+<p class=MsoNormal><span style='mso-spacerun:yes'>Â </span><w:Sdt Citation="t"
  ID="-1646959117"><!--[if supportFields]><span style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>CITATION Cha17 \l 1033 <span
+ style='mso-spacerun:yes'>Â </span>CITATION Cha17 \l 1033 <span
  style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
  yes'>(Zaiontz, Shapiro-Wilk Original Test)</span><!--[if supportFields]><span
  style='mso-element:field-end'></span><![endif]--></w:Sdt><w:Sdt Citation="t"
  ID="745617117"><!--[if supportFields]><span style='mso-element:field-begin'></span>
  CITATION Cha171 \l 1033 <span style='mso-element:field-separator'></span><![endif]--><span
- style='mso-no-proof:yes'><span style='mso-spacerun:yes'> </span>(Zaiontz,
+ style='mso-no-proof:yes'><span style='mso-spacerun:yes'>Â </span>(Zaiontz,
  Shapiro-Wilk Expanded Test)</span><!--[if supportFields]><span
  style='mso-element:field-end'></span><![endif]--></w:Sdt></p>
 
@@ -2070,7 +2070,7 @@ color:#365F91;mso-themecolor:accent1;mso-themeshade:191'><o:p>&nbsp;</o:p></span
 
 <p class=MsoNormal><w:Sdt Citation="t" ID="2081553201"><!--[if supportFields]><span
  style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>CITATION Rol17 \l 1033 <span
+ style='mso-spacerun:yes'>Â </span>CITATION Rol17 \l 1033 <span
  style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
  yes'>(Sonnier)</span><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]--></w:Sdt></p>
 
@@ -2078,7 +2078,7 @@ color:#365F91;mso-themecolor:accent1;mso-themeshade:191'><o:p>&nbsp;</o:p></span
 
 <p class=MsoNormal>Common Probability Distributions <w:Sdt Citation="t"
  ID="-1890488735"><!--[if supportFields]><span style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>CITATION DJo16 \l 1033 <span
+ style='mso-spacerun:yes'>Â </span>CITATION DJo16 \l 1033 <span
  style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
  yes'>(Joyce, 2016)</span><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]--></w:Sdt></p>
 
@@ -2089,15 +2089,15 @@ color:#365F91;mso-themecolor:accent1;mso-themeshade:191'><o:p>&nbsp;</o:p></span
 <h2><a name="_Toc474750232">Definition:</a> </h2>
 
 <p class=MsoNormal><span style='mso-bidi-font-size:12.0pt;line-height:115%;
-mso-bidi-font-family:Helvetica'>“A </span><a
+mso-bidi-font-family:Helvetica'>Â“A </span><a
 href="http://mathworld.wolfram.com/StatisticalDistribution.html"><span
 style='mso-bidi-font-size:12.0pt;line-height:115%;mso-bidi-font-family:Helvetica'>statistical
 distribution</span></a><span style='mso-bidi-font-size:12.0pt;line-height:115%;
 mso-bidi-font-family:Helvetica'> whose variables can take on only discrete
 values. Abramowitz and Stegun (1972, p.&nbsp;929) give a table of the
-parameters of most common discrete distributions.” <w:Sdt Citation="t"
+parameters of most common discrete distributions.Â” <w:Sdt Citation="t"
  ID="857237260"><!--[if supportFields]><span style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>CITATION Eri171 \l 1033 <span
+ style='mso-spacerun:yes'>Â </span>CITATION Eri171 \l 1033 <span
  style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
  yes'>(Weisstein, Discrete Distribution, 2017)</span><!--[if supportFields]><span
  style='mso-element:field-end'></span><![endif]--><span style='mso-bidi-font-size:
@@ -2151,10 +2151,10 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
      src="Summary%20of%20Distributions_files/image002.jpg" v:shapes="Picture_x0020_2"></span><![endif]></span></a><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-533576963"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Eri17 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Eri17 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Weisstein, Wolfram Mathworld, 2017)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Weisstein, Wolfram Mathworld, 2017)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l6 level1 lfo1;tab-stops:list .5in'><span
@@ -2286,8 +2286,8 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
       auto;line-height:normal;mso-list:l3 level2 lfo2;tab-stops:list 1.0in'><span
       lang=EN style='mso-ansi-language:EN'>The </span><a
       href="https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution"
-      title="Maxwell–Boltzmann distribution"><span lang=EN style='mso-ansi-language:
-      EN'>Maxwell–Boltzmann distribution</span></a><span lang=EN
+      title="MaxwellÂ–Boltzmann distribution"><span lang=EN style='mso-ansi-language:
+      EN'>MaxwellÂ–Boltzmann distribution</span></a><span lang=EN
       style='mso-ansi-language:EN'><o:p></o:p></span></li>
  </ul>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
@@ -2382,8 +2382,8 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
       auto;line-height:normal;mso-list:l3 level2 lfo2;tab-stops:list 1.0in'><span
       lang=EN style='mso-ansi-language:EN'>The </span><a
       href="https://en.wikipedia.org/wiki/Conway%E2%80%93Maxwell%E2%80%93Poisson_distribution"
-      title="Conway–Maxwell–Poisson distribution"><span lang=EN
-      style='mso-ansi-language:EN'>Conway–Maxwell–Poisson distribution</span></a><span
+      title="ConwayÂ–MaxwellÂ–Poisson distribution"><span lang=EN
+      style='mso-ansi-language:EN'>ConwayÂ–MaxwellÂ–Poisson distribution</span></a><span
       lang=EN style='mso-ansi-language:EN'>, a two-parameter extension of the </span><a
       href="https://en.wikipedia.org/wiki/Poisson_distribution"
       title="Poisson distribution"><span lang=EN style='mso-ansi-language:EN'>Poisson
@@ -2402,8 +2402,8 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
      line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/w/index.php?title=Polya%E2%80%93Eggenberger_distribution&amp;action=edit&amp;redlink=1"
-     title="Polya–Eggenberger distribution (page does not exist)"><span
-     lang=EN style='mso-ansi-language:EN'>Polya–Eggenberger distribution</span></a><span
+     title="PolyaÂ–Eggenberger distribution (page does not exist)"><span
+     lang=EN style='mso-ansi-language:EN'>PolyaÂ–Eggenberger distribution</span></a><span
      lang=EN style='mso-ansi-language:EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list .5in'><span
@@ -2424,8 +2424,8 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
      line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Yule%E2%80%93Simon_distribution"
-     title="Yule–Simon distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Yule–Simon distribution</span></a><span lang=EN style='mso-ansi-language:
+     title="YuleÂ–Simon distribution"><span lang=EN style='mso-ansi-language:
+     EN'>YuleÂ–Simon distribution</span></a><span lang=EN style='mso-ansi-language:
      EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list .5in'><span
@@ -2453,7 +2453,7 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
      line-height:normal;mso-list:l3 level1 lfo2;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Zipf%E2%80%93Mandelbrot_law"
-     title="Zipf–Mandelbrot law"><span lang=EN style='mso-ansi-language:EN'>Zipf–Mandelbrot
+     title="ZipfÂ–Mandelbrot law"><span lang=EN style='mso-ansi-language:EN'>ZipfÂ–Mandelbrot
      law</span></a><span lang=EN style='mso-ansi-language:EN'> is a discrete
      power law distribution which is a generalization of the </span><a
      href="https://en.wikipedia.org/wiki/Zipf_distribution"
@@ -2468,7 +2468,7 @@ parameters of most common discrete distributions.” <w:Sdt Citation="t"
 <h2><a name="_Toc474750236">Definition:</a></h2>
 
 <p class=MsoNormal style='margin-top:0in;margin-right:1.0in;margin-bottom:10.0pt;
-margin-left:1.0in;text-align:justify'><span style='mso-spacerun:yes'> </span><span
+margin-left:1.0in;text-align:justify'><span style='mso-spacerun:yes'>Â </span><span
 class=st1><span lang=EN style='font-family:"Arial","sans-serif";color:#545454;
 mso-ansi-language:EN'>A </span></span><em><span lang=EN style='font-family:
 "Arial","sans-serif";color:#545454;mso-ansi-language:EN;font-weight:normal;
@@ -2484,10 +2484,10 @@ curve of its </span></span><em><span lang=EN style='font-family:"Arial","sans-se
 color:#545454;mso-ansi-language:EN;font-weight:normal;mso-bidi-font-weight:
 bold'>distribution</span></em><span class=st1><span lang=EN style='font-family:
 "Arial","sans-serif";color:#545454;mso-ansi-language:EN'>. Thus, only ranges of
-values can have a nonzero probability.<span style='mso-spacerun:yes'>  </span><w:Sdt
+values can have a nonzero probability.<span style='mso-spacerun:yes'>Â  </span><w:Sdt
  Citation="t" ID="92052807"><!--[if supportFields]><span style='mso-element:
  field-begin'></span><span lang=EN-US style='mso-ansi-language:EN-US'><span
- style='mso-spacerun:yes'> </span>CITATION Min17 \l 1033 </span><span
+ style='mso-spacerun:yes'>Â </span>CITATION Min17 \l 1033 </span><span
  style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
  style='mso-ansi-language:EN-US;mso-no-proof:yes'>(Minitab)</span><!--[if supportFields]><span
  style='mso-element:field-end'></span><![endif]--></w:Sdt></span></span></p>
@@ -2530,10 +2530,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image004.jpg" v:shapes="Picture_x0020_3"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1051200920"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik171 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik171 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2543,11 +2543,11 @@ Interval</a></h2>
      delta function</span></a><span lang=EN style='mso-ansi-language:EN'>
      although not strictly a function, is a limiting form of many continuous
      probability functions. It represents a <i>discrete</i> probability
-     distribution concentrated at 0 — a </span><a
+     distribution concentrated at 0 Â— a </span><a
      href="https://en.wikipedia.org/wiki/Degenerate_distribution"
      title="Degenerate distribution"><span lang=EN style='mso-ansi-language:
      EN'>degenerate distribution</span></a><span lang=EN style='mso-ansi-language:
-     EN'> — but the notation treats it as if it were a continuous distribution.<o:p></o:p></span></li>
+     EN'> Â— but the notation treats it as if it were a continuous distribution.<o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
@@ -2571,17 +2571,17 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image006.jpg" v:shapes="Picture_x0020_4"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1317687461"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik172 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik172 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution"
-     title="Irwin–Hall distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Irwin–Hall distribution</span></a><span lang=EN style='mso-ansi-language:
+     title="IrwinÂ–Hall distribution"><span lang=EN style='mso-ansi-language:
+     EN'>IrwinÂ–Hall distribution</span></a><span lang=EN style='mso-ansi-language:
      EN'> is the distribution of the sum of <i>n</i> i.i.d. U(0,1) random
      variables.<o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
@@ -2595,10 +2595,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image008.jpg" v:shapes="Picture_x0020_5"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="2139597159"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik173 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik173 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2625,10 +2625,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image010.jpg" v:shapes="Picture_x0020_8"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-136105323"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik177 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik177 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2649,10 +2649,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image012.jpg" v:shapes="Picture_x0020_6"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1558503127"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik174 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik174 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2665,8 +2665,8 @@ Interval</a></h2>
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Marchenko%E2%80%93Pastur_distribution"
-     title="Marchenko–Pastur distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Marchenko–Pastur distribution</span></a><span lang=EN
+     title="MarchenkoÂ–Pastur distribution"><span lang=EN style='mso-ansi-language:
+     EN'>MarchenkoÂ–Pastur distribution</span></a><span lang=EN
      style='mso-ansi-language:EN'> is important in the theory of </span><a
      href="https://en.wikipedia.org/wiki/Random_matrices"
      title="Random matrices"><span lang=EN style='mso-ansi-language:EN'>random
@@ -2696,10 +2696,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image014.jpg" v:shapes="Picture_x0020_1"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1944496646"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik175 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik175 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2728,10 +2728,10 @@ Interval</a></h2>
      src="Summary%20of%20Distributions_files/image016.jpg" v:shapes="Picture_x0020_7"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="586577283"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik176 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik176 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
@@ -2780,7 +2780,7 @@ Interval</a></h2>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <h2 style='text-indent:.5in'><a name="_Toc474750238">Supported On Intervals Of
-Length 2&#960; – Directional Distributions</a></h2>
+Length 2&#960; Â– Directional Distributions</a></h2>
 
 <ul type=disc>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
@@ -2801,10 +2801,10 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image018.jpg" v:shapes="Picture_x0020_9"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-163475533"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik178 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik178 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
@@ -2824,10 +2824,10 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image020.jpg" v:shapes="Picture_x0020_10"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-905375689"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik179 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik179 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
@@ -2847,17 +2847,17 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image022.jpg" v:shapes="Picture_x0020_11"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1923371893"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik1710 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik1710 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Wrapped_L%C3%A9vy_distribution"
-     title="Wrapped Lévy distribution"><span lang=EN style='mso-ansi-language:
-     EN'>wrapped Lévy distribution</span></a><span lang=EN style='mso-ansi-language:
+     title="Wrapped LÃ©vy distribution"><span lang=EN style='mso-ansi-language:
+     EN'>wrapped LÃ©vy distribution</span></a><span lang=EN style='mso-ansi-language:
      EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
@@ -2877,10 +2877,10 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image024.jpg" v:shapes="Picture_x0020_12"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-947154525"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik1711 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik1711 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
@@ -2910,10 +2910,10 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image026.jpg" v:shapes="Picture_x0020_13"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="-672259834"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik1712 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik1712 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
@@ -2927,11 +2927,11 @@ Length 2&#960; – Directional Distributions</a></h2>
      title="Dirac delta function"><span lang=EN style='mso-ansi-language:EN'>Dirac
      delta function</span></a><span lang=EN style='mso-ansi-language:EN'>. It
      represents a <i>discrete</i> probability distribution concentrated at
-     2&#960;n — a </span><a
+     2&#960;n Â— a </span><a
      href="https://en.wikipedia.org/wiki/Degenerate_distribution"
      title="Degenerate distribution"><span lang=EN style='mso-ansi-language:
      EN'>degenerate distribution</span></a><span lang=EN style='mso-ansi-language:
-     EN'> — but the notation treats it as if it were a continuous distribution.<o:p></o:p></span></li>
+     EN'> Â— but the notation treats it as if it were a continuous distribution.<o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l10 level1 lfo4;tab-stops:list .5in'><span
      style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14"
@@ -2943,10 +2943,10 @@ Length 2&#960; – Directional Distributions</a></h2>
      src="Summary%20of%20Distributions_files/image028.jpg" v:shapes="Picture_x0020_14"><![endif]></span><span
      lang=EN style='mso-ansi-language:EN'><w:Sdt Citation="t" ID="1322474502"><!--[if supportFields]><span
       style='mso-element:field-begin'></span><span lang=EN-US style='mso-ansi-language:
-      EN-US'><span style='mso-spacerun:yes'> </span>CITATION Wik1713 \l 1033 </span><span
+      EN-US'><span style='mso-spacerun:yes'>Â </span>CITATION Wik1713 \l 1033 </span><span
       style='mso-element:field-separator'></span><![endif]--><span lang=EN-US
       style='mso-ansi-language:EN-US;mso-no-proof:yes'><span
-      style='mso-spacerun:yes'> </span>(Wikipedia)</span><!--[if supportFields]><span
+      style='mso-spacerun:yes'>Â </span>(Wikipedia)</span><!--[if supportFields]><span
       style='mso-element:field-end'></span><![endif]--></w:Sdt><o:p></o:p></span></li>
 </ul>
 
@@ -2969,8 +2969,8 @@ style='mso-ansi-language:EN'><o:p></o:p></span></span></h2>
      line-height:normal;mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Birnbaum%E2%80%93Saunders_distribution"
-     title="Birnbaum–Saunders distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Birnbaum–Saunders distribution</span></a><span lang=EN
+     title="BirnbaumÂ–Saunders distribution"><span lang=EN style='mso-ansi-language:
+     EN'>BirnbaumÂ–Saunders distribution</span></a><span lang=EN
      style='mso-ansi-language:EN'>, also known as the fatigue life
      distribution, is a probability distribution used extensively in
      reliability applications to model failure times.<o:p></o:p></span></li>
@@ -3089,7 +3089,7 @@ style='mso-ansi-language:EN'><o:p></o:p></span></span></h2>
      line-height:normal;mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_distribution"
-     title="Fréchet distribution"><span lang=EN style='mso-ansi-language:EN'>Fréchet
+     title="FrÃ©chet distribution"><span lang=EN style='mso-ansi-language:EN'>FrÃ©chet
      distribution</span></a><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
@@ -3171,7 +3171,7 @@ style='mso-ansi-language:EN'><o:p></o:p></span></span></h2>
      line-height:normal;mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/L%C3%A9vy_distribution"
-     title="Lévy distribution"><span lang=EN style='mso-ansi-language:EN'>Lévy
+     title="LÃ©vy distribution"><span lang=EN style='mso-ansi-language:EN'>LÃ©vy
      distribution</span></a><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
@@ -3331,12 +3331,12 @@ class=mw-headline><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span><
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Behrens%E2%80%93Fisher_distribution"
-     title="Behrens–Fisher distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Behrens–Fisher distribution</span></a><span lang=EN style='mso-ansi-language:
+     title="BehrensÂ–Fisher distribution"><span lang=EN style='mso-ansi-language:
+     EN'>BehrensÂ–Fisher distribution</span></a><span lang=EN style='mso-ansi-language:
      EN'>, which arises in the </span><a
      href="https://en.wikipedia.org/wiki/Behrens%E2%80%93Fisher_problem"
-     title="Behrens–Fisher problem"><span lang=EN style='mso-ansi-language:
-     EN'>Behrens–Fisher problem</span></a><span lang=EN style='mso-ansi-language:
+     title="BehrensÂ–Fisher problem"><span lang=EN style='mso-ansi-language:
+     EN'>BehrensÂ–Fisher problem</span></a><span lang=EN style='mso-ansi-language:
      EN'>.<o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
@@ -3388,8 +3388,8 @@ class=mw-headline><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span><
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Tippett_distribution"
-     title="Fisher–Tippett distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Fisher–Tippett</span></a><span lang=EN style='mso-ansi-language:EN'>,
+     title="FisherÂ–Tippett distribution"><span lang=EN style='mso-ansi-language:
+     EN'>FisherÂ–Tippett</span></a><span lang=EN style='mso-ansi-language:EN'>,
      extreme value, or log-Weibull distribution<o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><a
@@ -3476,8 +3476,8 @@ class=mw-headline><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span><
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/L%C3%A9vy_skew_alpha-stable_distribution"
-     title="Lévy skew alpha-stable distribution"><span lang=EN
-     style='mso-ansi-language:EN'>Lévy skew alpha-stable distribution</span></a><span
+     title="LÃ©vy skew alpha-stable distribution"><span lang=EN
+     style='mso-ansi-language:EN'>LÃ©vy skew alpha-stable distribution</span></a><span
      lang=EN style='mso-ansi-language:EN'> or </span><a
      href="https://en.wikipedia.org/wiki/Stable_distribution"
      title="Stable distribution"><span lang=EN style='mso-ansi-language:EN'>stable
@@ -3494,7 +3494,7 @@ class=mw-headline><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span><
      title="Landau distribution"><span lang=EN style='mso-ansi-language:EN'>Landau
      distribution</span></a><span lang=EN style='mso-ansi-language:EN'>, </span><a
      href="https://en.wikipedia.org/wiki/L%C3%A9vy_distribution"
-     title="Lévy distribution"><span lang=EN style='mso-ansi-language:EN'>Lévy
+     title="LÃ©vy distribution"><span lang=EN style='mso-ansi-language:EN'>LÃ©vy
      distribution</span></a><span lang=EN style='mso-ansi-language:EN'> and </span><a
      href="https://en.wikipedia.org/wiki/Normal_distribution"
      title="Normal distribution"><span lang=EN style='mso-ansi-language:EN'>normal
@@ -3602,8 +3602,8 @@ class=mw-headline><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span><
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Tracy%E2%80%93Widom_distribution"
-     title="Tracy–Widom distribution"><span lang=EN style='mso-ansi-language:
-     EN'>Tracy–Widom distribution</span></a><span lang=EN style='mso-ansi-language:
+     title="TracyÂ–Widom distribution"><span lang=EN style='mso-ansi-language:
+     EN'>TracyÂ–Widom distribution</span></a><span lang=EN style='mso-ansi-language:
      EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l9 level1 lfo6;tab-stops:list .5in'><span
@@ -3759,7 +3759,7 @@ style='mso-ansi-language:EN'><o:p></o:p></span></h2>
      line-height:normal;mso-list:l7 level1 lfo9;tab-stops:list .5in'><span
      lang=EN style='mso-ansi-language:EN'>The </span><a
      href="https://en.wikipedia.org/wiki/Balding%E2%80%93Nichols_model"
-     title="Balding–Nichols model"><span lang=EN style='mso-ansi-language:EN'>Balding–Nichols
+     title="BaldingÂ–Nichols model"><span lang=EN style='mso-ansi-language:EN'>BaldingÂ–Nichols
      model</span></a><span lang=EN style='mso-ansi-language:EN'><o:p></o:p></span></li>
  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
      line-height:normal;mso-list:l7 level1 lfo9;tab-stops:list .5in'><span
@@ -3914,7 +3914,7 @@ page-break-before:always'>
  color:windowtext;font-weight:normal'><w:sdtPr></w:sdtPr></span></h1>
  <p class=MsoBibliography style='margin-left:.5in;text-indent:-.5in'><!--[if supportFields]><span
  style='mso-element:field-begin'></span><span
- style='mso-spacerun:yes'> </span>BIBLIOGRAPHY <span style='mso-element:field-separator'></span><![endif]--><span
+ style='mso-spacerun:yes'>Â </span>BIBLIOGRAPHY <span style='mso-element:field-separator'></span><![endif]--><span
  style='mso-no-proof:yes'>Joyce, D. (2016). <i>Common probability
  distributionsI</i>. Retrieved January 31, 2017, from
  http://aleph0.clarku.edu/~djoyce/ma218/distributions.pdf<o:p></o:p></span></p>
@@ -3937,7 +3937,7 @@ page-break-before:always'>
  style='mso-no-proof:yes'>Wikipedia. (n.d.). <i>Dirac comb</i>. Retrieved
  January 31, 2017, from https://en.wikipedia.org/wiki/Dirac_comb<o:p></o:p></span></p>
  <p class=MsoBibliography style='margin-left:.5in;text-indent:-.5in'><span
- style='mso-no-proof:yes'>Wikipedia. (n.d.). <i>Irwin–Hall distribution</i>.
+ style='mso-no-proof:yes'>Wikipedia. (n.d.). <i>IrwinÂ–Hall distribution</i>.
  Retrieved January 31, 2017, from
  https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution<o:p></o:p></span></p>
  <p class=MsoBibliography style='margin-left:.5in;text-indent:-.5in'><span
@@ -3999,7 +3999,7 @@ page-break-before:always'>
 
 <p class=MsoNormal><span lang=EN style='mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
 
-<p class=MsoNormal><span style='mso-tab-count:2'>                        </span></p>
+<p class=MsoNormal><span style='mso-tab-count:2'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span></p>
 
 <p class=MsoNormal><span lang=EN style='mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></p>
 
