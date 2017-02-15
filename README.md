@@ -4,7 +4,7 @@ These calculations, functions and subroutines are primarily focused on statistic
 
 ## Installation
 
-####This project has not yet been tested on MAC or 64bit Office suite, feel free to provide feedback
+####This project has not yet been tested on MAC or 64bit Office suite, feel free to provide [feedback](../../issues/new)
 
 Building from source code has some automation, but is still a couple of manual steps:
 
