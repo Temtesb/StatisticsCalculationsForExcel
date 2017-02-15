@@ -55,4 +55,4 @@ When this project is distributed in it's entirety the license is GNU GPL 3.0.  M
 
 All contributions to this project will be published under GNU GPL 3.0. By submitting a pull request, you are certifying that all content added to this project is either in a (c) license that is [compatible](https://www.gnu.org/licenses/license-list.en.html#GPLCompatibleLicenses) with the GNU GPL 3.0 license or that you publish those contributions under the GNU GPL 3.0 license.
 
-The full text of each licens is listed in [LICENSE.md](LICENSE.md)
+The full text of each license is listed in [LICENSE.md](LICENSE.md)
