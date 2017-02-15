@@ -1,1 +1,0 @@
-Image resouces for Documentation

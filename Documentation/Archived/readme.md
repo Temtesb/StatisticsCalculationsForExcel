@@ -1,0 +1,1 @@
+basConvertDocToMarkdown is an attempt to export a simple word document to a markdown file, but as markdown accepts basic HTML exporting the word file as an html file then stripping the header portion works well enough as an alternative.
