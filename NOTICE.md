@@ -18,4 +18,4 @@
 The initial calculations are being built during Managing Small Business Data Analytics class at Regent University. Those functions that are mentioned as being derived from the course text of 'Essentials of Business Analytics ISBN 978-1-305-62773-4' 
 
 ##Note 3
-All files in this directory not listed elsewhere in this table.
+All files in this project not listed elsewhere in this table.
