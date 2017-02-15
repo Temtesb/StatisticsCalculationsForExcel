@@ -2,7 +2,7 @@
 To increase the visiblity of the content of the document to the internet. We don't work on paper any more why must we continue to publish every document as if it will be printed?
 
 ## Export as HTML instead...
-As markdown accepts basic HTML exporting the word file as an html file then stripping the header portion works well enough as an alternative.
+- [x] As markdown accepts basic HTML exporting the word file as an html file then stripping the header portion works well enough as an alternative.
 
 ##~~The [basConvertDocToMarkdown](Archived/basConvertDocToMarkdown.bas) module...~~
 This is an attempt to export a simple word document to aarkdown file, much work is required to make this usable.
