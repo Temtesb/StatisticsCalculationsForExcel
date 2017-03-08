@@ -1,4 +1,4 @@
-Attribute VB_Name = "build_ImportExportVbaComponents"
+Attribute VB_Name = "build_ImportExport"
 Option Explicit
 'Authored 2014-2017 by Jeremy Dean Gerdes <jeremy.gerdes@navy.mil>
     'Public Domain in the United States of America,
