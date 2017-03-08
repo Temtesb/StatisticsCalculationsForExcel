@@ -16,7 +16,7 @@ Option Explicit
          'officer or employee of the United States Government as part of that
          'person’s official duties.
          '...
-
+'Look at more effienent ways of doing this. maybe using mod
 Public Function RoundDown(dblVal As Double, intDigitsAfterDecimal As Integer) As Double
 Dim strTempVal As String: strTempVal = CStr(dblVal)
 Dim lngDecimalLocation As LongPtr: lngDecimalLocation = InStr(1, strTempVal, ".", vbBinaryCompare)

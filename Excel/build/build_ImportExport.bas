@@ -46,6 +46,7 @@ mSetThisVbeProject
                 Case LCase(Left(strComponentName, 3)) = "vb_"
                     strDestinationPath = GetRelativePathViaParent("..\..\General VB\src")
                 Case LCase(Left(strComponentName, 4)) = "bas_"
+                Debug.Print strComponentName
                     strDestinationPath = GetRelativePathViaParent("..\src")
                 Case LCase(Left(strComponentName, 6)) = "build_"
                     strDestinationPath = GetRelativePathViaParent()
